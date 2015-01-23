@@ -1,8 +1,8 @@
 ﻿// ----------------------------------
-// File name.........: MovieCopy.cs
-// Purpose ..........: Define a movie copy in the Domain Model
+// File name.........: Director.cs
+// Purpose ..........: Define a director in the Domain Model
 // Programmer........: André Rubira
-// Date..............: 2015-01-23
+// Date..............: 2013-05-16
 // Version...........: 1.0
 // Changed...........: 
 // ------------------------------------
@@ -13,10 +13,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MovieLibrary.Model
+
+namespace LibrarySystem
 {
-    class MovieCopy
+    public class Director
     {
         public int Id { get; set; }
+        public string Name { get; set; }
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="LibrarySystem.Director">
+    <Position X="2.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAEAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Director.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibrarySystem.Loan">
+    <Position X="5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAACAFAAAAAAAABAAAAAACAAAAAAACAAA=</HashCode>
+      <FileName>Model\Loan.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibrarySystem.Member">
+    <Position X="7.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAQEAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Member.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieLibrary.Model.MovieCopy">
+    <Position X="2.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\MovieCopy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieGenerator.Model.Movie">
+    <Position X="0.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgADAEgAwQAQREAEACACAAIiAAAQAAAEAAAAAAEQAAA=</HashCode>
+      <FileName>Model\Movie.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
