@@ -9,6 +9,7 @@ namespace MovieGenerator.Model
     class Movie
     {
         // medlemsvariabler
+        private int Id;
         private int time;
         private string title;
         private string genre;
@@ -50,6 +51,14 @@ namespace MovieGenerator.Model
 
         // metoder
 
+        public void setId(int inId)
+        {
+            this.Id = inId;
+        }
+        public int getId()
+        {
+            return this.Id;
+        }
         /// <summary>
         /// Return the path of a image
         /// </summary>
@@ -161,6 +170,7 @@ namespace MovieGenerator.Model
         public override string ToString()
         {
             string response =
+                "Id:" + this.Id + "\n" +
                 "Title:" + this.title + "\n" +
                 "Time:" + this.time + "\n" +
                 "Genre:" + this.genre + "\n" +

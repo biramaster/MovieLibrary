@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Controll\MovieList.cs" />
     <Compile Include="Model\Movie.cs" />
+    <Compile Include="Model\MovieCopy.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\AddMember.cs">
