@@ -20,7 +20,7 @@ namespace LibrarySystem
     class ServiceProvider
     {
         static MovieList _movieService;
-        public static MovieList GetBookService()
+        public static MovieList GetMovieService()
         {
             if (_movieService == null)
                 _movieService = new MovieList();
