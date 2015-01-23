@@ -52,6 +52,7 @@
     <Compile Include="Model\MovieCopy.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\ServiceProvider.cs" />
     <Compile Include="View\AddMember.cs">
       <SubType>Form</SubType>
     </Compile>
