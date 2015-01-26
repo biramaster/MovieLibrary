@@ -44,8 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controll\Member.cs" />
+    <Compile Include="Controll\IListor.cs" />
+    <Compile Include="Controll\MemberList.cs" />
     <Compile Include="Controll\MovieList.cs" />
+    <Compile Include="DAL\BinarySerialization.cs" />
     <Compile Include="Model\Director.cs" />
     <Compile Include="Model\Loan.cs" />
     <Compile Include="Model\Member.cs" />

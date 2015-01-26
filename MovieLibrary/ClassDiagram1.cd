@@ -10,7 +10,7 @@
   <Class Name="LibrarySystem.Loan">
     <Position X="5" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAACAFAAAAAAAABAAAAAACAAAAAAACAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAgCAFAAAAAAAABAAAAAACAAAAEAACABA=</HashCode>
       <FileName>Model\Loan.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -24,7 +24,7 @@
   <Class Name="MovieLibrary.Model.MovieCopy">
     <Position X="2.75" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAgAAAAAAAAAAAAAAAAAACAAAAAgAAAAA=</HashCode>
       <FileName>Model\MovieCopy.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -33,6 +33,13 @@
     <TypeIdentifier>
       <HashCode>AgADAEgAwQAQREAEACACAAIiAAAQAAAEAAAAAAEQAAA=</HashCode>
       <FileName>Model\Movie.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieLibrary.DAL.BinarySerialization" Collapsed="true">
+    <Position X="12.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DAL\BinarySerialization.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

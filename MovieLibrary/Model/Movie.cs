@@ -4,7 +4,7 @@
 // Programmer........: André Rubira
 // Date..............: 2015-01-23
 // Version...........: 1.0
-// Changed...........: 
+// Changed...........: 26-01-2015
 // ------------------------------------
 
 
@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 
 namespace MovieGenerator.Model
 {
+	[Serializable]
     class Movie
     {
         // medlemsvariabler
