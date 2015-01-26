@@ -10,8 +10,9 @@ namespace MovieLibrary.Controll
 	{
 		void Add(T item);
 		void Remove(T item);
-		T Get(int item);
+		T Get(int index);
 		int Count();
 		T Find(string strFind);
+        int NextID();
 	}
 }
