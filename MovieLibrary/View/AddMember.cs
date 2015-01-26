@@ -20,6 +20,7 @@ namespace MovieLibrary.View
             InitializeComponent();
             memberLista.Updated += new EventHandler(memberService_Update);
             initListView();
+
         }
 
 
