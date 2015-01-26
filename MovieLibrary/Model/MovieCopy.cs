@@ -17,6 +17,21 @@ namespace MovieLibrary.Model
 {
     class MovieCopy
     {
-        public int Id { get; set; }
+        private int filmId;
+
+        public int FilmId
+        {
+            get { return filmId; }
+            set { filmId = value; }
+        }
+        
+        private int Id;
+
+        public int ID
+        {
+            get { return Id; }
+            set { Id = value; }
+        }
+        
     }
 }
