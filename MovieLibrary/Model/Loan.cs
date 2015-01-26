@@ -17,7 +17,22 @@ namespace LibrarySystem
 {
     public class Loan
     {
-        public int Id { get; set; }
+		private int Id;
+
+		public int ID
+		{
+			get { return Id; }
+			set { Id = value; }
+		}
+
+		private int copyFilmId;
+
+		public int CopyFilmId
+		{
+			get { return copyFilmId; }
+			set { copyFilmId = value; }
+		}
+		
         public int filmId { get; set; }
         public int memberId { get; set; }
         public DateTime TimeOfLoan { get; set; }
