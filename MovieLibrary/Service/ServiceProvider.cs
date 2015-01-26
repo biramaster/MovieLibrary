@@ -10,6 +10,7 @@
 
 
 using MovieGenerator.Controller;
+using MovieLibrary.Controll;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace LibrarySystem
     class ServiceProvider
     {
         static MovieList _movieService;
+        static MemberList _memberService;
         public static MovieList GetMovieService()
         {
             if (_movieService == null)
@@ -28,7 +30,13 @@ namespace LibrarySystem
             return _movieService;
         }
 
+        public static MemberList GetMemberService()
+        {
+            if (_memberService == null)
+                _memberService = new MemberList();
 
+            return _memberService;
+        }
 
     }
 

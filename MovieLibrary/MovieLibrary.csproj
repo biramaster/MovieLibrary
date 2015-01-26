@@ -47,6 +47,7 @@
     <Compile Include="Controll\IListor.cs" />
     <Compile Include="Controll\MemberList.cs" />
     <Compile Include="Controll\MovieList.cs" />
+    <Compile Include="CustomException\CustomException.cs" />
     <Compile Include="DAL\BinarySerialization.cs" />
     <Compile Include="Model\Director.cs" />
     <Compile Include="Model\Loan.cs" />

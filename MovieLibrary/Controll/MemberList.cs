@@ -6,9 +6,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MovieLibrary.Controll
-{
+{ 
 	class MemberList : IListor<Member>
 	{
+        private List<Member> m_memberList;
+
+        public MemberList()
+        {
+
+        }
 		public void Add(Member item)
 		{
 			throw new NotImplementedException();

@@ -30,11 +30,11 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.movieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.memberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listAllMoviesInTheLibraryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listAllAvailableMoviesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewMoviesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewCopiesOfAMovieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.memberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addANewMemberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addANewLoanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
@@ -62,15 +62,6 @@
             this.movieToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.movieToolStripMenuItem.Text = "Movie";
             // 
-            // memberToolStripMenuItem
-            // 
-            this.memberToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addANewMemberToolStripMenuItem,
-            this.addANewLoanToolStripMenuItem});
-            this.memberToolStripMenuItem.Name = "memberToolStripMenuItem";
-            this.memberToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.memberToolStripMenuItem.Text = "Member";
-            // 
             // listAllMoviesInTheLibraryToolStripMenuItem
             // 
             this.listAllMoviesInTheLibraryToolStripMenuItem.Name = "listAllMoviesInTheLibraryToolStripMenuItem";
@@ -88,24 +79,37 @@
             this.addNewMoviesToolStripMenuItem.Name = "addNewMoviesToolStripMenuItem";
             this.addNewMoviesToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.addNewMoviesToolStripMenuItem.Text = "Add new movies";
+            this.addNewMoviesToolStripMenuItem.Click += new System.EventHandler(this.addNewMoviesToolStripMenuItem_Click);
             // 
             // addNewCopiesOfAMovieToolStripMenuItem
             // 
             this.addNewCopiesOfAMovieToolStripMenuItem.Name = "addNewCopiesOfAMovieToolStripMenuItem";
             this.addNewCopiesOfAMovieToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.addNewCopiesOfAMovieToolStripMenuItem.Text = "Add new copies of a movie";
+            this.addNewCopiesOfAMovieToolStripMenuItem.Click += new System.EventHandler(this.addNewCopiesOfAMovieToolStripMenuItem_Click);
+            // 
+            // memberToolStripMenuItem
+            // 
+            this.memberToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addANewMemberToolStripMenuItem,
+            this.addANewLoanToolStripMenuItem});
+            this.memberToolStripMenuItem.Name = "memberToolStripMenuItem";
+            this.memberToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.memberToolStripMenuItem.Text = "Member";
             // 
             // addANewMemberToolStripMenuItem
             // 
             this.addANewMemberToolStripMenuItem.Name = "addANewMemberToolStripMenuItem";
             this.addANewMemberToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.addANewMemberToolStripMenuItem.Text = "Add a new member";
+            this.addANewMemberToolStripMenuItem.Click += new System.EventHandler(this.addANewMemberToolStripMenuItem_Click);
             // 
             // addANewLoanToolStripMenuItem
             // 
             this.addANewLoanToolStripMenuItem.Name = "addANewLoanToolStripMenuItem";
             this.addANewLoanToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.addANewLoanToolStripMenuItem.Text = "Add a new loan";
+            this.addANewLoanToolStripMenuItem.Click += new System.EventHandler(this.addANewLoanToolStripMenuItem_Click);
             // 
             // MainForm
             // 
