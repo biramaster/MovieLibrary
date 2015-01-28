@@ -23,16 +23,17 @@ namespace MovieLibrary.View
 
         }
 
+		public void memberService_Update(object sender,EventArgs e)
+        {
+            updateListView();
+        }
 
         private void addMemberbtn_Click(object sender, EventArgs e)
         {
             memberLista.Add(new Member(tbxPersonal.Text, tbxname.Text));
         }
 
-        public void memberService_Update(object sender,EventArgs e)
-        {
-            updateListView();
-        }
+       
 
         private void initListView()
         {
