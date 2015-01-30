@@ -37,6 +37,8 @@
             this.memberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addANewMemberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addANewLoanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveMembersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,7 +59,8 @@
             this.listAllMoviesInTheLibraryToolStripMenuItem,
             this.listAllAvailableMoviesToolStripMenuItem,
             this.addNewMoviesToolStripMenuItem,
-            this.addNewCopiesOfAMovieToolStripMenuItem});
+            this.addNewCopiesOfAMovieToolStripMenuItem,
+            this.saveToolStripMenuItem});
             this.movieToolStripMenuItem.Name = "movieToolStripMenuItem";
             this.movieToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.movieToolStripMenuItem.Text = "Movie";
@@ -92,7 +95,8 @@
             // 
             this.memberToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addANewMemberToolStripMenuItem,
-            this.addANewLoanToolStripMenuItem});
+            this.addANewLoanToolStripMenuItem,
+            this.saveMembersToolStripMenuItem});
             this.memberToolStripMenuItem.Name = "memberToolStripMenuItem";
             this.memberToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.memberToolStripMenuItem.Text = "Member";
@@ -110,6 +114,20 @@
             this.addANewLoanToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.addANewLoanToolStripMenuItem.Text = "Add a new loan";
             this.addANewLoanToolStripMenuItem.Click += new System.EventHandler(this.addANewLoanToolStripMenuItem_Click);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.saveToolStripMenuItem.Text = "Save Movies";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // saveMembersToolStripMenuItem
+            // 
+            this.saveMembersToolStripMenuItem.Name = "saveMembersToolStripMenuItem";
+            this.saveMembersToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.saveMembersToolStripMenuItem.Text = "Save Members";
+            this.saveMembersToolStripMenuItem.Click += new System.EventHandler(this.saveMembersToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -138,5 +156,7 @@
         private System.Windows.Forms.ToolStripMenuItem memberToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addANewMemberToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addANewLoanToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveMembersToolStripMenuItem;
     }
 }

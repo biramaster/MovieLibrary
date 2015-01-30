@@ -9,7 +9,6 @@
 // --------------------------------------------------------------------------
 
 
-using MovieGenerator.Controller;
 using MovieLibrary.Controll;
 using System;
 using System.Collections.Generic;

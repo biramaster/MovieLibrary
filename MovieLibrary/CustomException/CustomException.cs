@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MovieLibrary.CustomException
+namespace MovieLibrary
 {
     class CustomException : ApplicationException
     {

@@ -1,7 +1,9 @@
 ﻿using LibrarySystem;
+using MovieLibrary.DAL;
 using MovieLibrary.Service;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +25,20 @@ namespace MovieLibrary.Controll
         public MemberList()
         {
             m_memberList = new List<Member>();
+            try
+            {
+                if (File.Exists("MemberLista.DAT"))
+                {
+                    m_memberList = BinarySerialization<List<Member>>.BinaryDeSerialize("MemberLista.DAT");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new CustomException(ex.Message);
+            }
         }
+
 		public void Add(Member item)
 		{
             item.ID = NextID();
@@ -71,6 +86,27 @@ namespace MovieLibrary.Controll
         public int NextID()
         {
             return m_memberList.Count() + 1;
+        }
+
+        /// <summary>
+        /// BinarySerialize is a method in the MemberList class that 
+        /// Serialize (save object from the program into files) using 
+        /// binary serialization.
+        /// </summary>
+        /// <returns>true or cast an exception</returns>
+        public bool BinarySerialize()
+        {
+            try
+            {
+                BinarySerialization<List<Member>>.FileName = "MemberLista.DAT";
+                BinarySerialization<List<Member>>.BinarySerialize(m_memberList);
+            }
+            catch (Exception ex)
+            {
+                throw new CustomException(ex.Message);
+            }
+
+            return true;
         }
     }
 }

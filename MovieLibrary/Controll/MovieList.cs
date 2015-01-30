@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MovieLibrary.Controll;
 
-namespace MovieGenerator.Controller
+namespace MovieLibrary.Controll
 {
     class MovieList : IListor<Movie>
     {

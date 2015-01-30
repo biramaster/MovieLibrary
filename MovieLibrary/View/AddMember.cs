@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MovieLibrary.DAL;
 
 namespace MovieLibrary.View
 {
@@ -22,7 +23,6 @@ namespace MovieLibrary.View
             initListView();
 
         }
-
 
         private void addMemberbtn_Click(object sender, EventArgs e)
         {
@@ -80,5 +80,6 @@ namespace MovieLibrary.View
 
             }
         }
+
     }
 }
