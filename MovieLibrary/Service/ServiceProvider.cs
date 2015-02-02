@@ -31,8 +31,19 @@ namespace LibrarySystem
 
         public static MemberList GetMemberService()
         {
-            if (_memberService == null)
-                _memberService = new MemberList();
+			if (_memberService == null)
+			{
+				try
+				{
+					_memberService = new MemberList();
+				}
+				catch (Exception)
+				{
+					
+					throw;
+				}
+				
+			}
 
             return _memberService;
         }

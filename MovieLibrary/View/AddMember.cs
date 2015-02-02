@@ -15,9 +15,19 @@ namespace MovieLibrary.View
 {
     public partial class AddMember : Form
     {
-        private MemberList memberLista = ServiceProvider.GetMemberService();
+		private MemberList memberLista;
         public AddMember()
         {
+			try
+			{
+				memberLista = ServiceProvider.GetMemberService();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+				return;
+			}
+			
             InitializeComponent();
             memberLista.Updated += new EventHandler(memberService_Update);
             initListView();
@@ -79,7 +89,6 @@ namespace MovieLibrary.View
             catch (Exception)
             {
                 //MessageBox.Show("Fel...");
-
             }
         }
 
