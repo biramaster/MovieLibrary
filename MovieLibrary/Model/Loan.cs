@@ -47,4 +47,10 @@ namespace LibrarySystem
             return str;
         }
     }
+
+    public class Loan2 : Loan
+    {
+        private int myInt;
+
+    }
 }

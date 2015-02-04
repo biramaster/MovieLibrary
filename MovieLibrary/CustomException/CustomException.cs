@@ -13,7 +13,7 @@ namespace MovieLibrary
         public CustomException(string reason)
             : base(reason)
         {
-
+            
         }
     }
 }
