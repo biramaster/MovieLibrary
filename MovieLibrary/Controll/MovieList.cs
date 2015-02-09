@@ -5,16 +5,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MovieLibrary.Controll;
+using MovieLibrary.Service;
 
 namespace MovieLibrary.Controll
 {
-    class MovieList : IListor<Movie>
+    class MovieList : IListor<Movie>, IService
     {
         private List<Movie> m_movieList;
+        public event EventHandler Updated;
+
 
         public MovieList()
         {
             m_movieList = new List<Movie>();
+        }
+
+
+        protected void OnUpdated()
+        {
+            if (Updated != null)
+                Updated(this, EventArgs.Empty);
         }
 
         public void Add(Movie item)
@@ -97,5 +107,7 @@ namespace MovieLibrary.Controll
         {
             return m_movieList.Count() + 1;
         }
+
+       
     }
 }

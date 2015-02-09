@@ -7,6 +7,7 @@
 // Changed...........: 2015-01-26
 // ------------------------------------
 
+using MovieLibrary.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace LibrarySystem
         private int m_id;
         private string m_personalId;
         private string m_name;
-
+        //private IService s = new IService(); // Det går inte att instansiera ett interface. Abstrakta klasser går inte att instanisera
         public string Name
         {
             get { return m_name; }
