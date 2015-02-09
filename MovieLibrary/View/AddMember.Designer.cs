@@ -173,12 +173,12 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(109, 23);
             this.button3.TabIndex = 14;
-            this.button3.Text = "Add Loan";
+            this.button3.Text = "Add Movie Copy";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(405, 584);
+            this.button1.Location = new System.Drawing.Point(419, 553);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(109, 23);
             this.button1.TabIndex = 15;
