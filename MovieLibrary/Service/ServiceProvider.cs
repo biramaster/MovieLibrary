@@ -21,6 +21,8 @@ namespace LibrarySystem
     {
         static MovieList _movieService;
         static MemberList _memberService;
+        static DirectorList _directorService;
+
         public static MovieList GetMovieService()
         {
             if (_movieService == null)
@@ -48,6 +50,25 @@ namespace LibrarySystem
             return _memberService;
         }
 
+
+        public static DirectorList GetDirectorService()
+        {
+            if (_directorService == null)
+            {
+                try
+                {
+                    _directorService = new DirectorList();
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+
+            }
+
+            return _directorService;
+        }
     }
 
 }

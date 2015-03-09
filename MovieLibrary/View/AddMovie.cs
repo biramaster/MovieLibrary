@@ -15,12 +15,14 @@ namespace MovieLibrary.View
     public partial class AddMovie : Form
     {
         private MovieList movieList;
+        private DirectorList directorList;
         public AddMovie()
         {
             InitializeComponent();
             try
             {
                 movieList = ServiceProvider.GetMovieService();
+                directorList = ServiceProvider.GetDirectorService();
             }
             catch (Exception ex)
             {
@@ -67,6 +69,11 @@ namespace MovieLibrary.View
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

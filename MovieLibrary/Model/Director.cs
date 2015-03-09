@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 
 namespace LibrarySystem
 {
+    [Serializable]
     public class Director
     {
         public int Id { get; set; }
