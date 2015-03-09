@@ -47,7 +47,24 @@ namespace MovieLibrary.View
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
+			try
+			{
+				if (File.Exists("DirectorLista.DAT"))
+				{
+					if (AskAQuestion("DirectorLista.DAT File exist.\nAre You sure you want to replace it?"))
+						ServiceProvider.GetDirectorService().BinarySerialize();
+				}
 
+				if (File.Exists("MovieLista.DAT"))
+				{
+					if (AskAQuestion("MovieLista.DAT File exist.\nAre You sure you want to replace it?"))
+						ServiceProvider.GetMovieService().BinarySerialize();
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
             
         }
 

@@ -1,4 +1,5 @@
 ﻿using LibrarySystem;
+using MovieGenerator.Model;
 using MovieLibrary.Controll;
 using System;
 using System.Collections.Generic;
@@ -91,13 +92,29 @@ namespace MovieLibrary.View
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
-        }
+			movieList.Add(new Movie(tbxTitle.Text, Convert.ToInt32(tbxRuntime.Text), tbxGenre.Text, tbxDirector.Text, Convert.ToInt32(tbxAge.Text)));
+		}
 
 
         private void btnAddDirector_Click(object sender, EventArgs e)
         {
             directorList.Add(new Director(tbxDirector.Text));
         }
+
+		private void lvwDirector_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			try
+			{
+				string memberID = lvwDirector.SelectedItems[0].Text;
+
+				Director director = directorList.Find(memberID);
+
+				tbxDirector.Text = director.Name;
+			}
+			catch (Exception)
+			{
+				//MessageBox.Show("Fel...");
+			}
+		}
     }
 }

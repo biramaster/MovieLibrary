@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MovieLibrary.Controll;
 using MovieLibrary.Service;
+using System.IO;
+using MovieLibrary.DAL;
 
 namespace MovieLibrary.Controll
 {
@@ -18,6 +20,22 @@ namespace MovieLibrary.Controll
         public MovieList()
         {
             m_movieList = new List<Movie>();
+			try
+			{
+				if (File.Exists("MovieLista.DAT"))
+				{
+					m_movieList = BinarySerialization<List<Movie>>.BinaryDeSerialize("MovieLista.DAT");
+				}
+				else
+				{
+					this.BinarySerialize();
+				}
+			}
+			catch (Exception ex)
+			{
+
+				throw new CustomException(ex.Message);
+			}
         }
 
 
@@ -31,6 +49,7 @@ namespace MovieLibrary.Controll
         {
             item.setId(NextID());
             m_movieList.Add(item);
+			OnUpdated();
         }
 
         public void Remove(Movie item)
@@ -107,6 +126,21 @@ namespace MovieLibrary.Controll
         {
             return m_movieList.Count() + 1;
         }
+
+		public bool BinarySerialize()
+		{
+			try
+			{
+				BinarySerialization<List<Movie>>.FileName = "MovieLista.DAT";
+				BinarySerialization<List<Movie>>.BinarySerialize(m_movieList);
+			}
+			catch (Exception ex)
+			{
+				throw new CustomException(ex.Message);
+			}
+
+			return true;
+		}
 
        
     }

@@ -18,17 +18,13 @@ namespace MovieLibrary.Controll
 
         public DirectorList()
         {
+			m_directorList = new List<Director>();
             try
             {
                 if (File.Exists("DirectorLista.DAT"))
                 {
                     m_directorList = BinarySerialization<List<Director>>.BinaryDeSerialize("DirectorLista.DAT");
-                }
-                /*else
-                {
-                    m_directorList = new List<Director>();
-                    this.BinarySerialize();
-                }*/
+                } 
 
             }
             catch (Exception ex)
@@ -68,7 +64,11 @@ namespace MovieLibrary.Controll
 
         public Director Find(string strFind)
         {
-            throw new NotImplementedException();
+			var me = (from director in m_directorList
+					  where director.ID.ToString() == strFind
+					  select director).First();
+
+			return me;
         }
 
         public int NextID()

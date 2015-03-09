@@ -27,6 +27,10 @@ namespace MovieLibrary.Controll
                 {
                     m_memberList = BinarySerialization<List<Member>>.BinaryDeSerialize("MemberLista.DAT");
                 }
+				else
+				{
+					this.BinarySerialize();
+				}
             }
             catch (Exception ex)
             {

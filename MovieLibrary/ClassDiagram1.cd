@@ -3,7 +3,7 @@
   <Class Name="LibrarySystem.Director">
     <Position X="2.75" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAEAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgAAEAAAAIAQAAAAAAAAAAAAAAAAEAAA=</HashCode>
       <FileName>Model\Director.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -35,41 +35,34 @@
       <FileName>Model\Movie.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MovieLibrary.DAL.BinarySerialization">
-    <Position X="9.75" Y="4.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>DAL\BinarySerialization.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="MovieLibrary.Controll.MemberList">
     <Position X="12.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAEABAAIAABAQAAAAIAAAAQAAAAAEAAAA=</HashCode>
+      <HashCode>AAIAAAAAAAAAEABAAIAABAQIAAAIAAAAQAAAAAEAAAA=</HashCode>
       <FileName>Controll\MemberList.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="MovieGenerator.Controller.MovieList">
+  <Class Name="MovieLibrary.Controll.MovieList">
     <Position X="5.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEIAAAQAAAAAEABAAAAABAQAIAAIgAAAAAIAAAAAAAA=</HashCode>
+      <HashCode>AEIAAAQAAAAAEABAAAAABAQAIAAIgAAAQAIAAAEAAAA=</HashCode>
       <FileName>Controll\MovieList.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="MovieLibrary.CustomException.CustomException">
-    <Position X="9.75" Y="8.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>CustomException\CustomException.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="LibrarySystem.ServiceProvider">
     <Position X="9.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAgAAACAAAAAAAQAAAAAAAACAAAAAAA=</HashCode>
+      <HashCode>AAAIAAAAAAAAAAgAAACAgAAAAAQAAAAAAAACAAAAAAA=</HashCode>
       <FileName>Service\ServiceProvider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieLibrary.DAL.BinarySerialization&lt;T&gt;" Collapsed="true">
+    <Position X="7.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAQAAAAAAAAIAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>DAL\BinarySerialization.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="MovieLibrary.Controll.IListor&lt;T&gt;">
