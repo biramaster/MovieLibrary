@@ -170,7 +170,7 @@ namespace MovieLibrary.View
 
         private void btnAddLoan_Click(object sender, EventArgs e)
         {
-            string[] movieID = lblSelectedMovieCopyID.Text.Split(':');
+           /* string[] movieID = lblSelectedMovieCopyID.Text.Split(':');
             Loan loan = LoanList.Find(movieID[0]);
             if(loan.isOnLoan())
             {
@@ -181,7 +181,7 @@ namespace MovieLibrary.View
 
             }
 
-            
+            */
         }
 
         private void lvwMovieCopy_SelectedIndexChanged(object sender, EventArgs e)
