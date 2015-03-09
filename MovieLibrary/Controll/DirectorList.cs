@@ -20,10 +20,16 @@ namespace MovieLibrary.Controll
         {
             try
             {
-                if (File.Exists("MDirectorLista.DAT"))
+                if (File.Exists("DirectorLista.DAT"))
                 {
                     m_directorList = BinarySerialization<List<Director>>.BinaryDeSerialize("DirectorLista.DAT");
                 }
+                /*else
+                {
+                    m_directorList = new List<Director>();
+                    this.BinarySerialize();
+                }*/
+
             }
             catch (Exception ex)
             {
@@ -57,7 +63,7 @@ namespace MovieLibrary.Controll
 
         public int Count()
         {
-            throw new NotImplementedException();
+            return m_directorList.Count();
         }
 
         public Director Find(string strFind)

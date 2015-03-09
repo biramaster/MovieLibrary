@@ -52,7 +52,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lvwDirector = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,7 +76,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 304);
+            this.label1.Location = new System.Drawing.Point(19, 380);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 30;
@@ -85,7 +85,7 @@
             // lblAge
             // 
             this.lblAge.AutoSize = true;
-            this.lblAge.Location = new System.Drawing.Point(19, 259);
+            this.lblAge.Location = new System.Drawing.Point(19, 335);
             this.lblAge.Name = "lblAge";
             this.lblAge.Size = new System.Drawing.Size(26, 13);
             this.lblAge.TabIndex = 29;
@@ -94,7 +94,7 @@
             // lblRuntime
             // 
             this.lblRuntime.AutoSize = true;
-            this.lblRuntime.Location = new System.Drawing.Point(19, 215);
+            this.lblRuntime.Location = new System.Drawing.Point(19, 291);
             this.lblRuntime.Name = "lblRuntime";
             this.lblRuntime.Size = new System.Drawing.Size(46, 13);
             this.lblRuntime.TabIndex = 28;
@@ -120,35 +120,35 @@
             // 
             // tbxPath
             // 
-            this.tbxPath.Location = new System.Drawing.Point(19, 320);
+            this.tbxPath.Location = new System.Drawing.Point(20, 396);
             this.tbxPath.Name = "tbxPath";
             this.tbxPath.Size = new System.Drawing.Size(133, 20);
             this.tbxPath.TabIndex = 25;
             // 
             // tbxAge
             // 
-            this.tbxAge.Location = new System.Drawing.Point(19, 275);
+            this.tbxAge.Location = new System.Drawing.Point(20, 351);
             this.tbxAge.Name = "tbxAge";
             this.tbxAge.Size = new System.Drawing.Size(133, 20);
             this.tbxAge.TabIndex = 24;
             // 
             // tbxRuntime
             // 
-            this.tbxRuntime.Location = new System.Drawing.Point(19, 234);
+            this.tbxRuntime.Location = new System.Drawing.Point(20, 310);
             this.tbxRuntime.Name = "tbxRuntime";
             this.tbxRuntime.Size = new System.Drawing.Size(133, 20);
             this.tbxRuntime.TabIndex = 23;
             // 
             // tbxGenre
             // 
-            this.tbxGenre.Location = new System.Drawing.Point(19, 91);
+            this.tbxGenre.Location = new System.Drawing.Point(20, 91);
             this.tbxGenre.Name = "tbxGenre";
             this.tbxGenre.Size = new System.Drawing.Size(133, 20);
             this.tbxGenre.TabIndex = 21;
             // 
             // btnChange
             // 
-            this.btnChange.Location = new System.Drawing.Point(22, 417);
+            this.btnChange.Location = new System.Drawing.Point(20, 464);
             this.btnChange.Name = "btnChange";
             this.btnChange.Size = new System.Drawing.Size(130, 23);
             this.btnChange.TabIndex = 20;
@@ -157,7 +157,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(22, 379);
+            this.btnAdd.Location = new System.Drawing.Point(20, 426);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(130, 23);
             this.btnAdd.TabIndex = 19;
@@ -185,7 +185,7 @@
             // 
             // tbxTitle
             // 
-            this.tbxTitle.Location = new System.Drawing.Point(19, 50);
+            this.tbxTitle.Location = new System.Drawing.Point(20, 50);
             this.tbxTitle.Name = "tbxTitle";
             this.tbxTitle.Size = new System.Drawing.Size(133, 20);
             this.tbxTitle.TabIndex = 16;
@@ -261,21 +261,21 @@
             this.button4.Text = "Add a Copy";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // listView1
+            // lvwDirector
             // 
-            this.listView1.Location = new System.Drawing.Point(19, 135);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(126, 68);
-            this.listView1.TabIndex = 41;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.lvwDirector.Location = new System.Drawing.Point(20, 135);
+            this.lvwDirector.Name = "lvwDirector";
+            this.lvwDirector.Size = new System.Drawing.Size(156, 139);
+            this.lvwDirector.TabIndex = 41;
+            this.lvwDirector.UseCompatibleStateImageBehavior = false;
+            this.lvwDirector.View = System.Windows.Forms.View.Details;
             // 
             // AddMovie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 608);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.lvwDirector);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -334,6 +334,6 @@
 		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.Button button3;
 		private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lvwDirector;
     }
 }

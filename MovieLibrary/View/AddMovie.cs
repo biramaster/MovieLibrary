@@ -16,6 +16,7 @@ namespace MovieLibrary.View
     {
         private MovieList movieList;
         private DirectorList directorList;
+
         public AddMovie()
         {
             InitializeComponent();
@@ -31,6 +32,7 @@ namespace MovieLibrary.View
             }
 
             movieList.Updated += new EventHandler(movieService_Update);
+            directorList.Updated += new EventHandler(movieService_Update);
             initListView();
         }
 
@@ -73,6 +75,18 @@ namespace MovieLibrary.View
                 item = new ListViewItem(columns);
                 lvwMovie.Items.Add(item);
             }
+
+            lvwDirector.Items.Clear();
+            columns = new string[2];
+
+            for (int i = 0; i < directorList.Count(); i++)
+            {
+                columns[0] = directorList.Get(i).ID.ToString();
+                columns[1] = directorList.Get(i).Name;
+                item = new ListViewItem(columns);
+                lvwDirector.Items.Add(item);
+            }
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

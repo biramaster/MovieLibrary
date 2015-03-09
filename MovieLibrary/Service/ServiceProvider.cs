@@ -26,7 +26,16 @@ namespace LibrarySystem
         public static MovieList GetMovieService()
         {
             if (_movieService == null)
-                _movieService = new MovieList();
+                try
+                {
+                    _movieService = new MovieList();
+                }
+                catch (Exception)
+                {
+                    
+                    throw;
+                }
+                
 
             return _movieService;
         }
