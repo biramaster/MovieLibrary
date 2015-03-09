@@ -40,7 +40,9 @@ namespace MovieLibrary.Controll
 
         public void Add(Director item)
         {
-            throw new NotImplementedException();
+            item.ID = NextID();
+            m_directorList.Add(item);
+            OnUpdated();
         }
 
         public void Remove(Director item)
@@ -50,7 +52,7 @@ namespace MovieLibrary.Controll
 
         public Director Get(int index)
         {
-            throw new NotImplementedException();
+            return m_directorList.ElementAt(index);
         }
 
         public int Count()
@@ -65,7 +67,7 @@ namespace MovieLibrary.Controll
 
         public int NextID()
         {
-            throw new NotImplementedException();
+            return m_directorList.Count() + 1;
         }
 
         /// <summary>

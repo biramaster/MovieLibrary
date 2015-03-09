@@ -46,13 +46,13 @@
             this.tbxTitle = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.tbxDirector = new System.Windows.Forms.TextBox();
+            this.btnAddDirector = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,7 +94,7 @@
             // lblRuntime
             // 
             this.lblRuntime.AutoSize = true;
-            this.lblRuntime.Location = new System.Drawing.Point(20, 215);
+            this.lblRuntime.Location = new System.Drawing.Point(19, 215);
             this.lblRuntime.Name = "lblRuntime";
             this.lblRuntime.Size = new System.Drawing.Size(46, 13);
             this.lblRuntime.TabIndex = 28;
@@ -208,30 +208,22 @@
             this.label2.TabIndex = 35;
             this.label2.Text = "Director";
             // 
-            // textBox1
+            // tbxDirector
             // 
-            this.textBox1.Location = new System.Drawing.Point(19, 519);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(133, 20);
-            this.textBox1.TabIndex = 34;
+            this.tbxDirector.Location = new System.Drawing.Point(19, 519);
+            this.tbxDirector.Name = "tbxDirector";
+            this.tbxDirector.Size = new System.Drawing.Size(133, 20);
+            this.tbxDirector.TabIndex = 34;
             // 
-            // button1
+            // btnAddDirector
             // 
-            this.button1.Location = new System.Drawing.Point(19, 559);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 23);
-            this.button1.TabIndex = 33;
-            this.button1.Text = "Add Director";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(22, 135);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(127, 69);
-            this.listBox1.TabIndex = 36;
+            this.btnAddDirector.Location = new System.Drawing.Point(19, 559);
+            this.btnAddDirector.Name = "btnAddDirector";
+            this.btnAddDirector.Size = new System.Drawing.Size(130, 23);
+            this.btnAddDirector.TabIndex = 33;
+            this.btnAddDirector.Text = "Add Director";
+            this.btnAddDirector.UseVisualStyleBackColor = true;
+            this.btnAddDirector.Click += new System.EventHandler(this.btnAddDirector_Click);
             // 
             // label3
             // 
@@ -269,19 +261,28 @@
             this.button4.Text = "Add a Copy";
             this.button4.UseVisualStyleBackColor = true;
             // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(19, 135);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(126, 68);
+            this.listView1.TabIndex = 41;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
             // AddMovie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 608);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.tbxDirector);
+            this.Controls.Add(this.btnAddDirector);
             this.Controls.Add(this.btnAddImage);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
@@ -327,12 +328,12 @@
 		private System.Windows.Forms.TextBox tbxTitle;
 		private System.Windows.Forms.Label lblTitle;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.TextBox textBox1;
-		private System.Windows.Forms.Button button1;
-		private System.Windows.Forms.ListBox listBox1;
+		private System.Windows.Forms.TextBox tbxDirector;
+        private System.Windows.Forms.Button btnAddDirector;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.Button button3;
 		private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ListView listView1;
     }
 }

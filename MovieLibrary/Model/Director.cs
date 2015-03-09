@@ -19,11 +19,32 @@ namespace LibrarySystem
     [Serializable]
     public class Director
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        private int _Id;
+        private string _Name;
+
+
+        public Director(string name)
+        {
+            Name = name;
+        }
+
+        public int ID
+        {
+            get { return _Id; }
+            set { _Id = value; }
+        }
+
+        
+
+        public string Name
+        {
+            get { return _Name; }
+            set { _Name = value; }
+        }
+        
         public override string ToString()
         {
-            return Name;
+            return _Name;
         }
     }
 }

@@ -49,6 +49,13 @@ namespace MovieLibrary.View
             lvwMovie.Columns.Add("Title", -2, HorizontalAlignment.Left);
             lvwMovie.Columns.Add("Director", -2, HorizontalAlignment.Left);
 
+            lvwDirector.FullRowSelect = true;
+            lvwDirector.GridLines = true;
+            // Add Columns
+            lvwDirector.Columns.Add("ID", -2, HorizontalAlignment.Left);
+            lvwDirector.Columns.Add("Name", -2, HorizontalAlignment.Left);
+            
+
             updateListView();
 
         }
@@ -73,9 +80,10 @@ namespace MovieLibrary.View
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
 
+        private void btnAddDirector_Click(object sender, EventArgs e)
+        {
+            directorList.Add(new Director(tbxDirector.Text));
         }
     }
 }

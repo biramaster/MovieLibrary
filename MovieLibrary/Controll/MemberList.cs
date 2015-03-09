@@ -16,11 +16,7 @@ namespace MovieLibrary.Controll
 
         public event EventHandler Updated;
 
-        protected void OnUpdated()
-        {
-            if (Updated != null)
-                Updated(this, EventArgs.Empty);
-        }
+        
 
         public MemberList()
         {
@@ -39,6 +35,11 @@ namespace MovieLibrary.Controll
             }
         }
 
+        protected void OnUpdated()
+        {
+            if (Updated != null)
+                Updated(this, EventArgs.Empty);
+        }
 		public void Add(Member item)
 		{
             item.ID = NextID();
