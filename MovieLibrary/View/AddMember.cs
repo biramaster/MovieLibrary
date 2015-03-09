@@ -168,6 +168,37 @@ namespace MovieLibrary.View
 
         }
 
+        private void btnAddLoan_Click(object sender, EventArgs e)
+        {
+            string[] movieID = lblSelectedMovieCopyID.Text.Split(':');
+            Loan loan = LoanList.Find(movieID[0]);
+            if(loan.isOnLoan())
+            {
+                throw new CustomException("This movie is on Loan");
+            }
+            else
+            {
+
+            }
+
+            
+        }
+
+        private void lvwMovieCopy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string movieCopyID = lvwMovieCopy.SelectedItems[0].Text;
+                lblSelectedMovieCopyID.Text = "Selected Copy ID:" + movieCopyID;
+            }
+            catch (Exception)
+            {
+                
+                //throw;
+            }
+            
+        }
+
 
     }
 }

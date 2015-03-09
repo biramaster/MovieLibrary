@@ -10,6 +10,11 @@ namespace MovieLibrary.Controll
 {
     class LoanList : IListor<Loan>, IService
     {
+
+        private List<Loan> m_loanList;
+
+        public event EventHandler Updated;
+
         public void Add(Loan item)
         {
             throw new NotImplementedException();

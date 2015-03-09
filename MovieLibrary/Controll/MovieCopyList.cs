@@ -100,5 +100,10 @@ namespace MovieLibrary.Controll
 
             return true;
         }
+
+        public bool FindAvaliableMovie(string p)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -41,8 +41,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lvwMovie = new System.Windows.Forms.ListView();
             this.lvwMovieCopy = new System.Windows.Forms.ListView();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnAddLoan = new System.Windows.Forms.Button();
             this.lblMovieCopy = new System.Windows.Forms.Label();
+            this.lblSelectedMovieCopyID = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblPersonal
@@ -159,15 +160,17 @@
             this.lvwMovieCopy.TabIndex = 12;
             this.lvwMovieCopy.UseCompatibleStateImageBehavior = false;
             this.lvwMovieCopy.View = System.Windows.Forms.View.Details;
+            this.lvwMovieCopy.SelectedIndexChanged += new System.EventHandler(this.lvwMovieCopy_SelectedIndexChanged);
             // 
-            // button3
+            // btnAddLoan
             // 
-            this.button3.Location = new System.Drawing.Point(222, 553);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(109, 23);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "Add Loan";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnAddLoan.Location = new System.Drawing.Point(222, 553);
+            this.btnAddLoan.Name = "btnAddLoan";
+            this.btnAddLoan.Size = new System.Drawing.Size(109, 23);
+            this.btnAddLoan.TabIndex = 14;
+            this.btnAddLoan.Text = "Add Loan";
+            this.btnAddLoan.UseVisualStyleBackColor = true;
+            this.btnAddLoan.Click += new System.EventHandler(this.btnAddLoan_Click);
             // 
             // lblMovieCopy
             // 
@@ -178,13 +181,23 @@
             this.lblMovieCopy.TabIndex = 44;
             this.lblMovieCopy.Text = "Movie Copies";
             // 
+            // lblSelectedMovieCopyID
+            // 
+            this.lblSelectedMovieCopyID.AutoSize = true;
+            this.lblSelectedMovieCopyID.Location = new System.Drawing.Point(417, 553);
+            this.lblSelectedMovieCopyID.Name = "lblSelectedMovieCopyID";
+            this.lblSelectedMovieCopyID.Size = new System.Drawing.Size(93, 13);
+            this.lblSelectedMovieCopyID.TabIndex = 45;
+            this.lblSelectedMovieCopyID.Text = "Selected Copy ID:";
+            // 
             // AddMember
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(746, 636);
+            this.Controls.Add(this.lblSelectedMovieCopyID);
             this.Controls.Add(this.lblMovieCopy);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnAddLoan);
             this.Controls.Add(this.lvwMovieCopy);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lvwMovie);
@@ -220,7 +233,8 @@
 		private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListView lvwMovie;
 		private System.Windows.Forms.ListView lvwMovieCopy;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnAddLoan;
         private System.Windows.Forms.Label lblMovieCopy;
+        private System.Windows.Forms.Label lblSelectedMovieCopyID;
     }
 }
