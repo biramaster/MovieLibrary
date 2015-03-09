@@ -46,7 +46,9 @@
   <ItemGroup>
     <Compile Include="Controll\DirectorList.cs" />
     <Compile Include="Controll\IListor.cs" />
+    <Compile Include="Controll\LoanList.cs" />
     <Compile Include="Controll\MemberList.cs" />
+    <Compile Include="Controll\MovieCopyList.cs" />
     <Compile Include="Controll\MovieList.cs" />
     <Compile Include="CustomException\CustomException.cs" />
     <Compile Include="DAL\BinarySerialization.cs" />

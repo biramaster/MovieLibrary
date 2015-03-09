@@ -60,6 +60,12 @@ namespace MovieLibrary.View
 					if (AskAQuestion("MovieLista.DAT File exist.\nAre You sure you want to replace it?"))
 						ServiceProvider.GetMovieService().BinarySerialize();
 				}
+
+                if (File.Exists("MovieCopyLista.DAT"))
+                {
+                    if (AskAQuestion("MovieCopyLista.DAT File exist.\nAre You sure you want to replace it?"))
+                        ServiceProvider.GetMovieCopyService().BinarySerialize();
+                }
 			}
 			catch (Exception ex)
 			{

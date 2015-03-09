@@ -39,10 +39,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lvwMember = new System.Windows.Forms.ListView();
             this.label5 = new System.Windows.Forms.Label();
-            this.listView3 = new System.Windows.Forms.ListView();
-            this.label6 = new System.Windows.Forms.Label();
-            this.listView4 = new System.Windows.Forms.ListView();
+            this.lvwMovie = new System.Windows.Forms.ListView();
+            this.lvwMovieCopy = new System.Windows.Forms.ListView();
             this.button3 = new System.Windows.Forms.Button();
+            this.lblMovieCopy = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblPersonal
@@ -141,30 +141,24 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Movies";
             // 
-            // listView3
+            // lvwMovie
             // 
-            this.listView3.Location = new System.Drawing.Point(38, 333);
-            this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(293, 214);
-            this.listView3.TabIndex = 10;
-            this.listView3.UseCompatibleStateImageBehavior = false;
+            this.lvwMovie.Location = new System.Drawing.Point(38, 333);
+            this.lvwMovie.Name = "lvwMovie";
+            this.lvwMovie.Size = new System.Drawing.Size(293, 214);
+            this.lvwMovie.TabIndex = 10;
+            this.lvwMovie.UseCompatibleStateImageBehavior = false;
+            this.lvwMovie.View = System.Windows.Forms.View.Details;
+            this.lvwMovie.SelectedIndexChanged += new System.EventHandler(this.lvwMovie_SelectedIndexChanged);
             // 
-            // label6
+            // lvwMovieCopy
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(417, 317);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(111, 13);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Book copies available";
-            // 
-            // listView4
-            // 
-            this.listView4.Location = new System.Drawing.Point(420, 333);
-            this.listView4.Name = "listView4";
-            this.listView4.Size = new System.Drawing.Size(293, 214);
-            this.listView4.TabIndex = 12;
-            this.listView4.UseCompatibleStateImageBehavior = false;
+            this.lvwMovieCopy.Location = new System.Drawing.Point(420, 333);
+            this.lvwMovieCopy.Name = "lvwMovieCopy";
+            this.lvwMovieCopy.Size = new System.Drawing.Size(293, 214);
+            this.lvwMovieCopy.TabIndex = 12;
+            this.lvwMovieCopy.UseCompatibleStateImageBehavior = false;
+            this.lvwMovieCopy.View = System.Windows.Forms.View.Details;
             // 
             // button3
             // 
@@ -175,16 +169,25 @@
             this.button3.Text = "Add Loan";
             this.button3.UseVisualStyleBackColor = true;
             // 
+            // lblMovieCopy
+            // 
+            this.lblMovieCopy.AutoSize = true;
+            this.lblMovieCopy.Location = new System.Drawing.Point(417, 317);
+            this.lblMovieCopy.Name = "lblMovieCopy";
+            this.lblMovieCopy.Size = new System.Drawing.Size(71, 13);
+            this.lblMovieCopy.TabIndex = 44;
+            this.lblMovieCopy.Text = "Movie Copies";
+            // 
             // AddMember
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(746, 636);
+            this.Controls.Add(this.lblMovieCopy);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.listView4);
+            this.Controls.Add(this.lvwMovieCopy);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.listView3);
+            this.Controls.Add(this.lvwMovie);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lvwMember);
             this.Controls.Add(this.button2);
@@ -215,9 +218,9 @@
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.ListView lvwMember;
 		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.ListView listView3;
-		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.ListView listView4;
+        private System.Windows.Forms.ListView lvwMovie;
+		private System.Windows.Forms.ListView lvwMovieCopy;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label lblMovieCopy;
     }
 }

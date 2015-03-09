@@ -14,6 +14,7 @@ namespace MovieLibrary.Controll
     class MovieList : IListor<Movie>, IService
     {
         private List<Movie> m_movieList;
+
         public event EventHandler Updated;
 
 
@@ -33,7 +34,6 @@ namespace MovieLibrary.Controll
 			}
 			catch (Exception ex)
 			{
-
 				throw new CustomException(ex.Message);
 			}
         }
@@ -119,7 +119,11 @@ namespace MovieLibrary.Controll
 
         public Movie Find(string strFind)
         {
-            throw new NotImplementedException();
+            var me = (from movie in m_movieList
+                      where movie.getId().ToString() == strFind
+                      select movie).First();
+
+            return me;
         }
 
         public int NextID()

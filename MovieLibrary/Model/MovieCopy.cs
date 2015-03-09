@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 
 namespace MovieLibrary.Model
 {
+    [Serializable]
     class MovieCopy
     {
         private int filmId;
@@ -26,12 +27,20 @@ namespace MovieLibrary.Model
         }
         
         private int Id;
+        private string p;
 
+        
         public int ID
         {
             get { return Id; }
             set { Id = value; }
         }
-        
+
+
+        public MovieCopy(int p)
+        {
+            // TODO: Complete member initialization
+            this.ID = p;
+        }
     }
 }

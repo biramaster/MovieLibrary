@@ -1,6 +1,7 @@
 ﻿using LibrarySystem;
 using MovieGenerator.Model;
 using MovieLibrary.Controll;
+using MovieLibrary.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,7 @@ namespace MovieLibrary.View
     {
         private MovieList movieList;
         private DirectorList directorList;
+        private MovieCopyList movieCopyList;
 
         public AddMovie()
         {
@@ -25,6 +27,7 @@ namespace MovieLibrary.View
             {
                 movieList = ServiceProvider.GetMovieService();
                 directorList = ServiceProvider.GetDirectorService();
+                movieCopyList = ServiceProvider.GetMovieCopyService();
             }
             catch (Exception ex)
             {
@@ -34,7 +37,14 @@ namespace MovieLibrary.View
 
             movieList.Updated += new EventHandler(movieService_Update);
             directorList.Updated += new EventHandler(movieService_Update);
+            movieCopyList.Updated += new EventHandler(MoviCopyService_Update);
+
             initListView();
+        }
+
+        private void MoviCopyService_Update(object sender, EventArgs e)
+        {
+            updateListViewMoviCopy();
         }
 
         public void movieService_Update(object sender, EventArgs e)
@@ -57,7 +67,13 @@ namespace MovieLibrary.View
             // Add Columns
             lvwDirector.Columns.Add("ID", -2, HorizontalAlignment.Left);
             lvwDirector.Columns.Add("Name", -2, HorizontalAlignment.Left);
-            
+
+            lvwMovieCopy.FullRowSelect = true;
+            lvwMovieCopy.GridLines = true;
+            // Add Columns
+            lvwMovieCopy.Columns.Add("ID", -2, HorizontalAlignment.Left);
+            lvwMovieCopy.Columns.Add("Title", -2, HorizontalAlignment.Left);
+            lvwMovieCopy.Columns.Add("Director", -2, HorizontalAlignment.Left);
 
             updateListView();
 
@@ -105,9 +121,9 @@ namespace MovieLibrary.View
 		{
 			try
 			{
-				string memberID = lvwDirector.SelectedItems[0].Text;
+				string directorID = lvwDirector.SelectedItems[0].Text;
 
-				Director director = directorList.Find(memberID);
+                Director director = directorList.Find(directorID);
 
 				tbxDirector.Text = director.Name;
 			}
@@ -116,5 +132,66 @@ namespace MovieLibrary.View
 				//MessageBox.Show("Fel...");
 			}
 		}
+
+        private void lvwMovie_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string movieID = lvwMovie.SelectedItems[0].Text;
+
+                Movie movie = movieList.Find(movieID);
+
+                tbxTitle.Text = movie.getTitle();
+                tbxGenre.Text = movie.getGenre();
+                tbxRuntime.Text = movie.getTime().ToString();
+                tbxDirector.Text = movie.getDirector();
+                tbxAge.Text = movie.getAge().ToString();
+
+                lblMovieCopy.Text = "Movie Copies ID:" + movieID;
+
+                updateListViewMoviCopy();
+            }
+            catch (Exception)
+            {
+                //MessageBox.Show("Fel...");
+            }
+
+        }
+
+        private void updateListViewMoviCopy()
+        {
+            string[] movieID = lblMovieCopy.Text.Split(':');
+            Movie movie;
+            lvwMovieCopy.Items.Clear();
+            string[] columns = new string[3];
+            ListViewItem item;
+            for (int i = 0; i < movieCopyList.Count(); i++)
+            {
+                if (movieCopyList.Get(i).ID.ToString() == movieID[1])
+                {
+                    movie = movieList.Find(movieCopyList.Get(i).ID.ToString());
+                    columns[0] = movieCopyList.Get(i).FilmId.ToString();
+                    columns[1] = movie.getTitle();
+                    columns[2] = movie.getDirector();
+                    item = new ListViewItem(columns);
+                    lvwMovieCopy.Items.Add(item);
+                }
+            }
+            
+        }
+
+        private void btnAddCopy_Click(object sender, EventArgs e)
+        {
+            string[] movieID = lblMovieCopy.Text.Split(':');
+
+            Movie movie = movieList.Find(movieID[1]);
+
+            if (movie == null)
+            {
+                throw new CustomException("Can't Find movie. You need to select a movie to create a copy.");
+            }
+
+            movieCopyList.Add(new MovieCopy(Convert.ToInt32(movieID[1])));
+        }
     }
 }

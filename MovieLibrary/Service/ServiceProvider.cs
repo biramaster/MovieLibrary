@@ -22,6 +22,7 @@ namespace LibrarySystem
         static MovieList _movieService;
         static MemberList _memberService;
         static DirectorList _directorService;
+        static MovieCopyList _movieCopyService;
 
         public static MovieList GetMovieService()
         {
@@ -32,11 +33,8 @@ namespace LibrarySystem
                 }
                 catch (Exception)
                 {
-                    
                     throw;
                 }
-                
-
             return _movieService;
         }
 
@@ -50,12 +48,9 @@ namespace LibrarySystem
 				}
 				catch (Exception)
 				{
-					
 					throw;
 				}
-				
 			}
-
             return _memberService;
         }
 
@@ -70,14 +65,26 @@ namespace LibrarySystem
                 }
                 catch (Exception)
                 {
-
                     throw;
                 }
-
             }
-
             return _directorService;
         }
-    }
 
+        public static MovieCopyList GetMovieCopyService()
+        {
+            if (_movieCopyService == null)
+            {
+                try
+                {
+                    _movieCopyService = new MovieCopyList();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            return _movieCopyService;
+        }
+    }
 }
