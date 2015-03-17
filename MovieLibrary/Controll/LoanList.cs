@@ -1,7 +1,9 @@
 ﻿using LibrarySystem;
+using MovieLibrary.DAL;
 using MovieLibrary.Service;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +16,32 @@ namespace MovieLibrary.Controll
         private List<Loan> m_loanList;
 
         public event EventHandler Updated;
+
+		public LoanList()
+		{
+			m_loanList = new List<Loan>();
+			try
+			{
+				if (File.Exists("LoanLista.DAT"))
+				{
+					m_loanList = BinarySerialization<List<Loan>>.BinaryDeSerialize("LoanLista.DAT");
+				}
+				else
+				{
+					this.BinarySerialize();
+				}
+			}
+			catch (Exception ex)
+			{
+				throw new CustomException(ex.Message);
+			}
+		}
+
+		protected void OnUpdated()
+		{
+			if (Updated != null)
+				Updated(this, EventArgs.Empty);
+		}
 
         public void Add(Loan item)
         {
@@ -35,14 +63,33 @@ namespace MovieLibrary.Controll
             throw new NotImplementedException();
         }
 
-        public Loan Find(string strFind)
-        {
-            throw new NotImplementedException();
-        }
+		public Loan Find(string strFind)
+		{
+			var me = (from loan in m_loanList
+					  where loan.CopyFilmId.ToString() == strFind
+					  select loan).First();
 
-        public int NextID()
-        {
-            throw new NotImplementedException();
-        }
+			return me;
+		}
+
+		public int NextID()
+		{
+			return m_loanList.Count() + 1;
+		}
+
+		public bool BinarySerialize()
+		{
+			try
+			{
+				BinarySerialization<List<Loan>>.FileName = "LoanLista.DAT";
+				BinarySerialization<List<Loan>>.BinarySerialize(m_loanList);
+			}
+			catch (Exception ex)
+			{
+				throw new CustomException(ex.Message);
+			}
+
+			return true;
+		}
     }
 }
