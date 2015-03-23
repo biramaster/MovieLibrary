@@ -1,5 +1,6 @@
 ﻿using LibrarySystem;
 using MovieLibrary.Controll;
+using MovieLibrary.DAL;
 using MovieLibrary.Service;
 using System;
 using System.Collections.Generic;
@@ -53,18 +54,31 @@ namespace MovieLibrary.View
 				{
 					if (AskAQuestion("DirectorLista.DAT File exist.\nAre You sure you want to replace it?"))
 						ServiceProvider.GetDirectorService().BinarySerialize();
-				}
+                }
+                else
+                {
+                    ServiceProvider.GetDirectorService().BinarySerialize();
+                }
+
 
 				if (File.Exists("MovieLista.DAT"))
 				{
 					if (AskAQuestion("MovieLista.DAT File exist.\nAre You sure you want to replace it?"))
 						ServiceProvider.GetMovieService().BinarySerialize();
 				}
+                else
+                {
+                    ServiceProvider.GetMovieCopyService().BinarySerialize();
+                }
 
                 if (File.Exists("MovieCopyLista.DAT"))
                 {
                     if (AskAQuestion("MovieCopyLista.DAT File exist.\nAre You sure you want to replace it?"))
                         ServiceProvider.GetMovieCopyService().BinarySerialize();
+                }
+                else
+                {
+                    ServiceProvider.GetMovieCopyService().BinarySerialize();
                 }
 			}
 			catch (Exception ex)
@@ -102,6 +116,26 @@ namespace MovieLibrary.View
             {
                 return false;
             }
+        }
+
+        private void memberToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DatabaseEx1 dba = new DatabaseEx1();
+            dba.Show();
+        }
+
+        private void saveToADatabaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataAccessLayerDBA.SaveToDatabase(); 
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            
         }
     }
 }
