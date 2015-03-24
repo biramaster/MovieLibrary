@@ -40,8 +40,13 @@ namespace MovieLibrary.View
 
         private void DatabaseEx1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'movieLibraryDataSet.Member' table. You can move, or remove it, as needed.
+            this.memberTableAdapter.Fill(this.movieLibraryDataSet.Member);
+            // TODO: This line of code loads data into the 'movieLibraryDataSet.Movies' table. You can move, or remove it, as needed.
+            this.moviesTableAdapter.Fill(this.movieLibraryDataSet.Movies);
             // TODO: This line of code loads data into the 'movieLibraryDataSet.Director' table. You can move, or remove it, as needed.
-            this.directorTableAdapter.Fill(this.movieLibraryDataSet.Director);
+            //this.directorTableAdapter.Fill(this.movieLibraryDataSet.Director);
+
 
         }
     }

@@ -30,29 +30,38 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.movieLibraryDataSet = new MovieLibrary.MovieLibraryDataSet();
             this.directorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.movieLibraryDataSet = new MovieLibrary.MovieLibraryDataSet();
+            this.button1 = new System.Windows.Forms.Button();
             this.directorTableAdapter = new MovieLibrary.MovieLibraryDataSetTableAdapters.DirectorTableAdapter();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.moviesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.moviesTableAdapter = new MovieLibrary.MovieLibraryDataSetTableAdapters.MoviesTableAdapter();
+            this.memberBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.memberTableAdapter = new MovieLibrary.MovieLibraryDataSetTableAdapters.MemberTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.movieLibraryDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.directorBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.movieLibraryDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.moviesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memberBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.directorBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(13, 58);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(347, 150);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // directorBindingSource
+            // 
+            this.directorBindingSource.DataMember = "Director";
+            this.directorBindingSource.DataSource = this.movieLibraryDataSet;
+            // 
+            // movieLibraryDataSet
+            // 
+            this.movieLibraryDataSet.DataSetName = "MovieLibraryDataSet";
+            this.movieLibraryDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // button1
             // 
@@ -64,31 +73,27 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // movieLibraryDataSet
-            // 
-            this.movieLibraryDataSet.DataSetName = "MovieLibraryDataSet";
-            this.movieLibraryDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // directorBindingSource
-            // 
-            this.directorBindingSource.DataMember = "Director";
-            this.directorBindingSource.DataSource = this.movieLibraryDataSet;
-            // 
             // directorTableAdapter
             // 
             this.directorTableAdapter.ClearBeforeFill = true;
             // 
-            // idDataGridViewTextBoxColumn
+            // moviesBindingSource
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.moviesBindingSource.DataMember = "Movies";
+            this.moviesBindingSource.DataSource = this.movieLibraryDataSet;
             // 
-            // nameDataGridViewTextBoxColumn
+            // moviesTableAdapter
             // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.moviesTableAdapter.ClearBeforeFill = true;
+            // 
+            // memberBindingSource
+            // 
+            this.memberBindingSource.DataMember = "Member";
+            this.memberBindingSource.DataSource = this.movieLibraryDataSet;
+            // 
+            // memberTableAdapter
+            // 
+            this.memberTableAdapter.ClearBeforeFill = true;
             // 
             // DatabaseEx1
             // 
@@ -101,8 +106,10 @@
             this.Text = "DatabaseEx1";
             this.Load += new System.EventHandler(this.DatabaseEx1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.movieLibraryDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.directorBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.movieLibraryDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.moviesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memberBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -114,7 +121,9 @@
         private MovieLibraryDataSet movieLibraryDataSet;
         private System.Windows.Forms.BindingSource directorBindingSource;
         private MovieLibraryDataSetTableAdapters.DirectorTableAdapter directorTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource moviesBindingSource;
+        private MovieLibraryDataSetTableAdapters.MoviesTableAdapter moviesTableAdapter;
+        private System.Windows.Forms.BindingSource memberBindingSource;
+        private MovieLibraryDataSetTableAdapters.MemberTableAdapter memberTableAdapter;
     }
 }
