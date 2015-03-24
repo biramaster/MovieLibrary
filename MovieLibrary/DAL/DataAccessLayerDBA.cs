@@ -13,66 +13,46 @@ namespace MovieLibrary.DAL
 {
     class DataAccessLayerDBA
     {
-        private static SqlConnection sqlConnect;
-        private static SqlDataAdapter mDirector;
+        private static SqlConnection msqlConnection;
+        private static SqlDataAdapter mMoviesAdapter;
         private static DataSet mDataSet;
-        private static DataTable mDataTable;
+        private static String mConnectionString;
+
+        public DataAccessLayerDBA()
+        {
+            mConnectionString = MovieLibrary.Properties.Settings.Default.MovieLibraryConnectionString;
+
+            msqlConnection = new SqlConnection(mConnectionString);
+
+            msqlConnection.Open();
+
+            //CreateIfNotExists(); // Setup the database
+
+            mMoviesAdapter = new SqlDataAdapter("SELECT * FROM dbo.Movies", msqlConnection);
+
+            mDataSet = new DataSet("Movies");
+
+            mMoviesAdapter.FillSchema(mDataSet, SchemaType.Source, "dbo.Movies");
+
+            mMoviesAdapter.Fill(mDataSet, "dbo.Movies");
+
+            msqlConnection.Close();
+        }
 
         public static bool ReadFromDatabase()
         {
 
-
-
             return true;
+        }
+
+        public void SaveMovies()
+        {
+
         }
 
         public static bool SaveToDatabase()
         {
-            sqlConnect = new SqlConnection();
-            sqlConnect.ConnectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\MovieLibrary.mdf;Integrated Security=True";
-
-            sqlConnect.Open();
-
-            DirectorList dl = ServiceProvider.GetDirectorService();
-
-            //mDirector = new SqlDataAdapter(cmdString, sqlConnect);
-
-            /*SqlCommand cmd = new SqlCommand(cmdString, sqlConnect);
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
-            */
-            using (SqlCommand cmd = sqlConnect.CreateCommand())
-            {
-                cmd.CommandText = "@AddDirector";
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.Add("@ID", SqlDbType.Int);
-                cmd.Parameters.Add("@Name", SqlDbType.VarChar,50);
-
-                for (int i = 0; i < dl.Count(); i++)
-                {
-                   
-                    cmd.Parameters["@ID"].Value = dl.Get(i).ID;
-                    cmd.Parameters["@NAME"].Value = dl.Get(i).Name;
-                    int res = 0;
-                    try
-                    {
-                        res = cmd.ExecuteNonQuery();
-                    }
-                    catch (Exception)
-                    {
-                        throw;
-                    }
-
-                    //Debug.Write(cmdString + res + "\n");
-                }
-
-            }
-            /*DataTable table = new DataTable("Director");
-           
-            int result = mDirector.Update()
-
-            Debug.Write("How many rows in my database:"+result+ "\n");
-            */
+            
             return true;
 
         }

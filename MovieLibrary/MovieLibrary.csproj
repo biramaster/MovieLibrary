@@ -67,6 +67,7 @@
     <Compile Include="Controll\MovieList.cs" />
     <Compile Include="CustomException\CustomException.cs" />
     <Compile Include="DAL\BinarySerialization.cs" />
+    <Compile Include="DAL\DataAccess.cs" />
     <Compile Include="DAL\DataAccessLayerDBA.cs" />
     <Compile Include="Model\Director.cs" />
     <Compile Include="Model\Loan.cs" />
@@ -95,11 +96,11 @@
     <Compile Include="View\AvailableFilms.Designer.cs">
       <DependentUpon>AvailableFilms.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\DatabaseEx1.cs">
+    <Compile Include="View\DatabaseEx2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\DatabaseEx1.Designer.cs">
-      <DependentUpon>DatabaseEx1.cs</DependentUpon>
+    <Compile Include="View\DatabaseEx2.Designer.cs">
+      <DependentUpon>DatabaseEx2.cs</DependentUpon>
     </Compile>
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
@@ -125,9 +126,6 @@
     <EmbeddedResource Include="View\AvailableFilms.resx">
       <DependentUpon>AvailableFilms.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\DatabaseEx1.resx">
-      <DependentUpon>DatabaseEx1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -149,6 +147,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DAL\TextFile1.txt" />
     <Content Include="MovieLibrary.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
