@@ -18,6 +18,11 @@ namespace LibrarySystem
     public class Loan
     {
 		private int Id;
+        public int filmId { get; set; }
+        public int memberId { get; set; }
+        public DateTime TimeOfLoan { get; set; }
+        public DateTime DueDate { get; set; }
+        public DateTime? TimeOfReturn { get; set; }
 
 		public int ID
 		{
@@ -33,11 +38,7 @@ namespace LibrarySystem
 			set { copyFilmId = value; }
 		}
 		
-        public int filmId { get; set; }
-        public int memberId { get; set; }
-        public DateTime TimeOfLoan { get; set; }
-        public DateTime DueDate { get; set; }
-        public DateTime? TimeOfReturn { get; set; }
+        
 
         public override string ToString()
         {

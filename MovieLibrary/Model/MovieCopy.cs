@@ -19,6 +19,13 @@ namespace MovieLibrary.Model
     class MovieCopy
     {
         private int filmId;
+        private int Id;
+
+        public MovieCopy(int p)
+        {
+            // TODO: Complete member initialization
+            this.ID = p;
+        }
 
         public int FilmId
         {
@@ -26,9 +33,6 @@ namespace MovieLibrary.Model
             set { filmId = value; }
         }
         
-        private int Id;
-        private string p;
-
         
         public int ID
         {
@@ -36,11 +40,6 @@ namespace MovieLibrary.Model
             set { Id = value; }
         }
 
-
-        public MovieCopy(int p)
-        {
-            // TODO: Complete member initialization
-            this.ID = p;
-        }
+        
     }
 }
