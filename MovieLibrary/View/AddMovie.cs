@@ -108,7 +108,7 @@ namespace MovieLibrary.View
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-			movieList.Add(new Movie(tbxTitle.Text, Convert.ToInt32(tbxRuntime.Text), tbxGenre.Text, tbxDirector.Text, Convert.ToInt32(tbxAge.Text)));
+            movieList.Add(new Movie(tbxTitle.Text, Convert.ToInt32(tbxRuntime.Text), tbxGenre.Text, lvwDirector.SelectedItems., Convert.ToInt32(tbxAge.Text)));
 		}
 
 

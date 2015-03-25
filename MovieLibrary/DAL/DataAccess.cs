@@ -156,7 +156,6 @@ namespace DAL
                 throw;
             }
             
-
             mDataAdapterAnimals = new SqlDataAdapter("SELECT * FROM dbo.AnimalDummy", mConnection);
 
             mDataSet = new DataSet("AnimalDummy");
@@ -165,8 +164,7 @@ namespace DAL
 
             mDataAdapterAnimals.Fill(mDataSet, "dbo.AnimalDummy");
 
-            mConnection.Close();
-        
+            mConnection.Close();      
         }
 
         /// <summary>
@@ -205,6 +203,5 @@ namespace DAL
 
             mConnection.Close();
         }        
-
     }
 }

@@ -120,7 +120,7 @@ namespace MovieLibrary.View
 
         private void memberToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            DatabaseEx1 dba = new DatabaseEx1();
+            DatabaseEx2 dba = new DatabaseEx2();
             dba.Show();
         }
 
@@ -128,7 +128,8 @@ namespace MovieLibrary.View
         {
             try
             {
-                DataAccessLayerDBA.SaveToDatabase(); 
+                DataAccessLayerDBA dal = new DataAccessLayerDBA();
+                dal.SaveMoviesToDatabase();
             }
             catch (Exception ex)
             {

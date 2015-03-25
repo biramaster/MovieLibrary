@@ -126,6 +126,9 @@
     <EmbeddedResource Include="View\AvailableFilms.resx">
       <DependentUpon>AvailableFilms.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\DatabaseEx2.resx">
+      <DependentUpon>DatabaseEx2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
