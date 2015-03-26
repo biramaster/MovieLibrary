@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MovieLibrary.DAL;
 using MovieGenerator.Model;
+using MovieLibrary.Model;
 
 namespace MovieLibrary.View
 {
@@ -174,18 +175,36 @@ namespace MovieLibrary.View
 
         private void btnAddLoan_Click(object sender, EventArgs e)
         {
-           /* string[] movieID = lblSelectedMovieCopyID.Text.Split(':');
-            Loan loan = LoanList.Find(movieID[0]);
-            if(loan.isOnLoan())
+            string[] movieID = lblSelectedMovieCopyID.Text.Split(':');
+            string memberID = lvwMember.SelectedItems[0].Text;
+
+            Member member;
+            try
             {
-                throw new CustomException("This movie is on Loan");
+                member = memberList.Find(memberID);
+            }
+            catch (Exception)
+            {
+
+                throw new CustomException("You need to choose a member.");
+            }
+            
+            MovieCopy movieCopy = movieCopyList.Find(movieID[0]);
+            Movie movie = movieList.Find(movieCopy.FilmId.ToString());
+            Loan thisLoan = loanList.isOnLoan(movieCopy.ID.ToString());
+            if (thisLoan != null)
+            {
+                throw new CustomException("This movie is on Loan. Duedate is " + thisLoan.DueDate);
             }
             else
             {
-
+                Loan newLoan = new Loan();
+                newLoan.DueDate = DateTime.Now.AddDays(3);
+                newLoan.CopyFilmId = movieCopy.ID;
+                newLoan.TimeOfLoan = DateTime.Now;
+                newLoan.memberId = member.ID;
+                loanList.Add(newLoan);
             }
-
-            */
         }
 
         private void lvwMovieCopy_SelectedIndexChanged(object sender, EventArgs e)

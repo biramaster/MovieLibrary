@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 
 namespace LibrarySystem
 {
+    [Serializable]
     public class Loan
     {
 		private int Id;

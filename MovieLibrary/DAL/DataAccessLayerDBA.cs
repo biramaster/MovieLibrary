@@ -1,4 +1,5 @@
 ﻿using LibrarySystem;
+using MovieGenerator.Model;
 using MovieLibrary.Controll;
 using System;
 using System.Collections.Generic;
@@ -59,7 +60,7 @@ namespace MovieLibrary.DAL
             }
         }
 
-        public SqlDataAdapter ReadFromDatabaseMovies()
+        public SqlDataAdapter ReadFromDatabaseMovies1()
         {
             msqlConnection.Open();
 
@@ -97,7 +98,7 @@ namespace MovieLibrary.DAL
             for (int i = 0; i < movies.Count(); i++)
 			{
                 sqlString = "insert into dbo.movies(id,title,genre,directorid,age,path,runtime) values(" +
-                            movies.Get(i).getId().ToString() + ",'" +
+                            movies.Get(i).getId() + ",'" +
                             movies.Get(i).getTitle() + "','" +
                             movies.Get(i).getGenre() + "'," +
                             movies.Get(i).getDirector() + "," +
@@ -169,6 +170,74 @@ namespace MovieLibrary.DAL
         public SqlDataAdapter getMoviesAdapter()
         {
             return this.mMoviesAdapter;
+        }
+
+        public List<Director> ReadFromDatabaseDirector()
+        {
+            List<Director> directorList = new List<Director>();
+
+            msqlConnection.Open();
+            SqlCommand cmd;
+
+            cmd = new SqlCommand("USE MovieLibrary;", msqlConnection);
+            cmd.ExecuteNonQuery();
+
+            cmd = new SqlCommand("SELECT * FROM dbo.Director", msqlConnection);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Director director = new Director(reader.GetInt32(0).ToString(), reader.GetString(1));
+                    directorList.Add(director);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No rows found.");
+            }
+            reader.Close();
+            msqlConnection.Close();
+            return directorList;
+            
+        }
+
+        public List<Movie> ReadFromDatabaseMovies()
+        {
+            List<Movie> movieList = new List<Movie>();
+
+            msqlConnection.Open();
+            SqlCommand cmd;
+
+            cmd = new SqlCommand("USE MovieLibrary;", msqlConnection);
+            cmd.ExecuteNonQuery();
+
+            cmd = new SqlCommand("SELECT * FROM dbo.Movies", msqlConnection);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Movie movie = new Movie(reader.GetInt32(0), 
+                                            reader.GetString(1),
+                                            reader.GetString(2),
+                                            reader.GetInt32(3),
+                                            reader.GetInt32(4),
+                                            reader.GetString(5),
+                                            reader.GetInt32(6));
+                    movieList.Add(movie);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No rows found.");
+            }
+            reader.Close();
+            msqlConnection.Close();
+            return movieList;
+
         }
     }
 }

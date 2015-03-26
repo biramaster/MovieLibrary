@@ -21,13 +21,13 @@ namespace MovieGenerator.Model
     {
         // medlemsvariabler
         private int Id;
-        private int time;
         private string title;
         private string genre;
         private string director;
         private int age;
         private string path;
-
+        private int time;
+        
 
         // default constructor/konstruktor
         public Movie()
@@ -58,6 +58,18 @@ namespace MovieGenerator.Model
             this.genre = inGenre;
             this.director = inDirector;
             this.age = inAge;
+        }
+
+        public Movie(int p1, string p2, string p3, int p4, int p5, string p6, int p7)
+        {
+            // TODO: Complete member initialization
+            Id = p1;
+            title = p2;
+            genre = p3;
+            director = p4.ToString();
+            age = p5;
+            path = p6;
+            time = p7;
         }
 
         // metoder

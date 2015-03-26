@@ -175,6 +175,7 @@
             this.btnDelete.TabIndex = 18;
             this.btnDelete.Text = "Show All";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // lvwMovie
             // 

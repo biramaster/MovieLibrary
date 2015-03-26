@@ -29,7 +29,7 @@ namespace MovieLibrary.Controll
 				}
 				else
 				{
-					this.BinarySerialize();
+                    ReadFromDatabase();
 				}
 			}
 			catch (Exception ex)
@@ -145,6 +145,19 @@ namespace MovieLibrary.Controll
 
 			return true;
 		}
+
+        public void ReadFromDatabase()
+        {
+            try
+            {
+                DataAccessLayerDBA dal = new DataAccessLayerDBA();
+                m_movieList = dal.ReadFromDatabaseMovies();
+            }
+            catch (Exception ex)
+            {
+                throw new CustomException(ex.Message);
+            }
+        }
 
        
     }

@@ -28,7 +28,7 @@ namespace MovieLibrary.Controll
 				}
 				else
 				{
-					this.BinarySerialize();
+					
 				}
 			}
 			catch (Exception ex)
@@ -91,5 +91,15 @@ namespace MovieLibrary.Controll
 
 			return true;
 		}
+
+        public Loan isOnLoan(string movieCopyID)
+        {
+            var movie = (from loan in m_loanList
+                         where loan.ID.ToString() == movieCopyID &&
+                               loan.TimeOfReturn != null
+                      select loan).First();
+
+            return movie;
+        }
     }
 }

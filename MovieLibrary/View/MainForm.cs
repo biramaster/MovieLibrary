@@ -17,9 +17,27 @@ namespace MovieLibrary.View
 {
     public partial class MainForm : Form
     {
+        private MemberList memberList;
+        private MovieList movieList;
+        private MovieCopyList movieCopyList;
+        private LoanList loanList;
+        private DirectorList directorList;
         public MainForm()
         {
             InitializeComponent();
+            try
+            {
+                memberList = ServiceProvider.GetMemberService();
+                movieList = ServiceProvider.GetMovieService();
+                movieCopyList = ServiceProvider.GetMovieCopyService();
+                directorList = ServiceProvider.GetDirectorService();
+                //loanList = ServiceProvider.GetLoanService();   
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
         }
 
         private void addNewMoviesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -68,7 +86,7 @@ namespace MovieLibrary.View
 				}
                 else
                 {
-                    ServiceProvider.GetMovieCopyService().BinarySerialize();
+                    ServiceProvider.GetMovieService().BinarySerialize();
                 }
 
                 if (File.Exists("MovieCopyLista.DAT"))
@@ -80,18 +98,7 @@ namespace MovieLibrary.View
                 {
                     ServiceProvider.GetMovieCopyService().BinarySerialize();
                 }
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show(ex.Message);
-			}
-            
-        }
 
-        private void saveMembersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
                 if (File.Exists("MemberLista.DAT"))
                 {
                     if (AskAQuestion("MemberLista.DAT File exist.\nAre You sure you want to replace it?"))
@@ -102,12 +109,23 @@ namespace MovieLibrary.View
                     ServiceProvider.GetMemberService().BinarySerialize();
                 }
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+                if (File.Exists("LoanLista.DAT"))
+                {
+                    if (AskAQuestion("LoanLista.DAT File exist.\nAre You sure you want to replace it?"))
+                        ServiceProvider.GetLoanService().BinarySerialize();
+                }
+                else
+                {
+                    ServiceProvider.GetLoanService().BinarySerialize();
+                }
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+            
         }
+
 
         private bool AskAQuestion(string question)
         {
@@ -130,20 +148,16 @@ namespace MovieLibrary.View
 
         private void saveToADatabaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                DataAccessLayerDBA dal = new DataAccessLayerDBA();
-                dal.SaveMoviesToDatabase();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
+            
             
         }
 
         private void saveAllDirectorsToADatabaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void saveToDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -155,6 +169,33 @@ namespace MovieLibrary.View
 
                 MessageBox.Show(ex.Message);
             }
+
+            try
+            {
+                DataAccessLayerDBA dal = new DataAccessLayerDBA();
+                dal.SaveMoviesToDatabase();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void readFromDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                directorList.ReadFromDatabase();
+                movieList.ReadFromDatabase();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            
         }
     }
 }

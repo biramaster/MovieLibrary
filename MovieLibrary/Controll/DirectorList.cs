@@ -25,6 +25,10 @@ namespace MovieLibrary.Controll
                 {
                     m_directorList = BinarySerialization<List<Director>>.BinaryDeSerialize("DirectorLista.DAT");
                 } 
+                else
+                {
+                    ReadFromDatabase();
+                }
 
             }
             catch (Exception ex)
@@ -95,6 +99,19 @@ namespace MovieLibrary.Controll
             }
 
             return true;
+        }
+
+        public void ReadFromDatabase()
+        {
+            try
+            {
+                DataAccessLayerDBA dal = new DataAccessLayerDBA();
+                m_directorList = dal.ReadFromDatabaseDirector();
+            }
+            catch (Exception ex)
+            {
+                throw new CustomException(ex.Message);
+            }
         }
     }
 }

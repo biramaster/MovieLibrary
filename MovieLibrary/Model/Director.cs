@@ -22,10 +22,16 @@ namespace LibrarySystem
         private int _Id;
         private string _Name;
 
-
         public Director(string name)
         {
             Name = name;
+        }
+
+        public Director(string p1, string p2)
+        {
+            // TODO: Complete member initialization
+            this._Id = Convert.ToInt32(p1);
+            this.Name = p2;
         }
 
         public int ID

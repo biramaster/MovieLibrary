@@ -19,6 +19,7 @@ namespace MovieLibrary.View
         private MovieList movieList;
         private DirectorList directorList;
         private MovieCopyList movieCopyList;
+        private LoanList loanList;
 
         public AddMovie()
         {
@@ -28,6 +29,7 @@ namespace MovieLibrary.View
                 movieList = ServiceProvider.GetMovieService();
                 directorList = ServiceProvider.GetDirectorService();
                 movieCopyList = ServiceProvider.GetMovieCopyService();
+                loanList = ServiceProvider.GetLoanService();
             }
             catch (Exception ex)
             {
@@ -186,13 +188,26 @@ namespace MovieLibrary.View
             {
                 if (movieCopyList.Get(i).ID.ToString() == movieID[1])
                 {
-                    movie = movieList.Find(movieCopyList.Get(i).ID.ToString());
-                    columns[0] = movieCopyList.Get(i).FilmId.ToString();
-                    columns[1] = movie.getTitle();
-                    Director director = directorList.Find(movie.getDirector());
-                    columns[2] = director.Name;
-                    item = new ListViewItem(columns);
-                    lvwMovieCopy.Items.Add(item);
+                    Loan loan = null;
+                    try
+                    {
+                        loan = loanList.isOnLoan(movieCopyList.Get(i).ID.ToString());
+                    }
+                    catch (Exception)
+                    {
+                        
+                    }
+                     
+                    if (loan == null)
+                    {
+                        movie = movieList.Find(movieCopyList.Get(i).ID.ToString());
+                        columns[0] = movieCopyList.Get(i).FilmId.ToString();
+                        columns[1] = movie.getTitle();
+                        Director director = directorList.Find(movie.getDirector());
+                        columns[2] = director.Name;
+                        item = new ListViewItem(columns);
+                        lvwMovieCopy.Items.Add(item);
+                    }
                 }
             }
             
@@ -210,6 +225,21 @@ namespace MovieLibrary.View
             }
 
             movieCopyList.Add(new MovieCopy(Convert.ToInt32(movieID[1])));
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                movieList.ReadFromDatabase();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+            updateListView();
         }
     }
 }
