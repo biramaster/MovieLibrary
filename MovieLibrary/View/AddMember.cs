@@ -105,7 +105,8 @@ namespace MovieLibrary.View
             {
                 columns[0] = movieList.Get(i).getId().ToString();
                 columns[1] = movieList.Get(i).getTitle();
-                columns[2] = movieList.Get(i).getDirector();
+                Director director = ServiceProvider.GetDirectorService().Find(movieList.Get(i).getDirector());
+                columns[2] = director.Name;
                 item = new ListViewItem(columns);
                 lvwMovie.Items.Add(item);
             }
@@ -143,7 +144,8 @@ namespace MovieLibrary.View
                     // if not on loan
                     columns[0] = movieCopyList.Get(i).FilmId.ToString();
                     columns[1] = movie.getTitle();
-                    columns[2] = movie.getDirector();
+                    Director director = ServiceProvider.GetDirectorService().Find(movie.getDirector());
+                    columns[2] = director.Name;
                     item = new ListViewItem(columns);
                     lvwMovieCopy.Items.Add(item);
                 }

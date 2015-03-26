@@ -132,6 +132,7 @@
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="bin\Debug\DirectorLista.DAT" />
     <None Include="bin\Debug\MemberLista.DAT" />
     <None Include="bin\Debug\MovieCopyLista.DAT" />
     <None Include="bin\Debug\MovieLista.DAT" />
@@ -176,6 +177,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

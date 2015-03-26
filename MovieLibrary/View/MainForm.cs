@@ -97,6 +97,10 @@ namespace MovieLibrary.View
                     if (AskAQuestion("MemberLista.DAT File exist.\nAre You sure you want to replace it?"))
                         ServiceProvider.GetMemberService().BinarySerialize();
                 }
+                else
+                {
+                    ServiceProvider.GetMemberService().BinarySerialize();
+                }
 
             }
             catch (Exception ex)

@@ -88,7 +88,9 @@ namespace MovieLibrary.View
             {
                 columns[0] = movieList.Get(i).getId().ToString();
                 columns[1] = movieList.Get(i).getTitle();
-                columns[2] = movieList.Get(i).getDirector();
+                
+                Director director = directorList.Find(movieList.Get(i).getDirector());
+                columns[2] = director.Name;
                 item = new ListViewItem(columns);
                 lvwMovie.Items.Add(item);
             }
@@ -108,7 +110,22 @@ namespace MovieLibrary.View
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            movieList.Add(new Movie(tbxTitle.Text, Convert.ToInt32(tbxRuntime.Text), tbxGenre.Text, lvwDirector.SelectedItems., Convert.ToInt32(tbxAge.Text)));
+            string directorID;
+            try
+            {
+                directorID = lvwDirector.SelectedItems[0].Text;
+
+                Director director = directorList.Find(directorID);
+
+                movieList.Add(new Movie(tbxTitle.Text, Convert.ToInt32(tbxRuntime.Text), tbxGenre.Text, directorID, Convert.ToInt32(tbxAge.Text)));
+
+                MessageBox.Show("Movie " + tbxTitle.Text + " is added.");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Movie " + tbxTitle.Text+ " is not added.");
+            }
+            
 		}
 
 
@@ -172,7 +189,8 @@ namespace MovieLibrary.View
                     movie = movieList.Find(movieCopyList.Get(i).ID.ToString());
                     columns[0] = movieCopyList.Get(i).FilmId.ToString();
                     columns[1] = movie.getTitle();
-                    columns[2] = movie.getDirector();
+                    Director director = directorList.Find(movie.getDirector());
+                    columns[2] = director.Name;
                     item = new ListViewItem(columns);
                     lvwMovieCopy.Items.Add(item);
                 }
