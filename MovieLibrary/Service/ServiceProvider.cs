@@ -19,10 +19,11 @@ namespace LibrarySystem
 {
     class ServiceProvider
     {
-        static MovieList _movieService;
-        static MemberList _memberService;
-        static DirectorList _directorService;
-        static MovieCopyList _movieCopyService;
+        private static MovieList _movieService;
+        private static MemberList _memberService;
+        private static DirectorList _directorService;
+        private static MovieCopyList _movieCopyService;
+        private static LoanList _loanService;
 
         public static MovieList GetMovieService()
         {
@@ -85,6 +86,22 @@ namespace LibrarySystem
                 }
             }
             return _movieCopyService;
+        }
+
+        public static LoanList GetLoanService()
+        {
+            if (_loanService == null)
+            {
+                try
+                {
+                    _loanService = new LoanList();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            return _loanService;
         }
     }
 }

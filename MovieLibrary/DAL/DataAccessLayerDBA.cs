@@ -79,11 +79,21 @@ namespace MovieLibrary.DAL
         public void SaveMoviesToDatabase()
         {
             msqlConnection.Open();
-
+            string sqlString;
             List<string> sqlList = new List<string>();
             MovieList movies = ServiceProvider.GetMovieService();
             SqlCommand cmd;
-            string sqlString;
+            sqlString = "delete from dbo.movies;";
+            try
+            {
+                cmd = new SqlCommand(sqlString, msqlConnection);
+                cmd.ExecuteNonQuery();
+            }
+            catch
+            {
+                throw;
+            }
+           
             for (int i = 0; i < movies.Count(); i++)
 			{
                 sqlString = "insert into dbo.movies(id,title,genre,directorid,age,path,runtime) values(" +
@@ -104,6 +114,47 @@ namespace MovieLibrary.DAL
                     throw;
                 }
 			}
+
+            msqlConnection.Close();
+        }
+
+        public void SaveDirectorToDatabase()
+        {
+            msqlConnection.Open();
+
+            List<string> sqlList = new List<string>();
+            DirectorList director = ServiceProvider.GetDirectorService();
+            SqlCommand cmd;
+            string sqlString;
+
+            sqlString = "delete from dbo.director;";
+            try
+            {
+                cmd = new SqlCommand(sqlString, msqlConnection);
+                cmd.ExecuteNonQuery();
+            }
+            catch
+            {
+                throw;
+            }
+
+
+            for (int i = 0; i < director.Count(); i++)
+            {
+                sqlString = "insert into dbo.director(id,name) values(" +
+                            director.Get(i).ID + ",'" +
+                            director.Get(i).Name + "')";
+                            
+                try
+                {
+                    cmd = new SqlCommand(sqlString, msqlConnection);
+                    cmd.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
+            }
 
             msqlConnection.Close();
         }

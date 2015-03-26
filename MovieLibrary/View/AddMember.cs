@@ -19,6 +19,7 @@ namespace MovieLibrary.View
 		private MemberList memberList;
         private MovieList movieList;
         private MovieCopyList movieCopyList;
+        private LoanList loanList;
 
         public AddMember()
         {
@@ -27,6 +28,7 @@ namespace MovieLibrary.View
 				memberList = ServiceProvider.GetMemberService();
                 movieList = ServiceProvider.GetMovieService();
                 movieCopyList = ServiceProvider.GetMovieCopyService();
+                loanList = ServiceProvider.GetLoanService();
 			}
 			catch (Exception ex)
 			{

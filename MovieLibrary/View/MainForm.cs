@@ -142,5 +142,19 @@ namespace MovieLibrary.View
             }
             
         }
+
+        private void saveAllDirectorsToADatabaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataAccessLayerDBA dal = new DataAccessLayerDBA();
+                dal.SaveDirectorToDatabase();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

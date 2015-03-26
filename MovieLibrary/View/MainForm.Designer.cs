@@ -39,9 +39,10 @@
             this.addANewMemberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addANewLoanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveMembersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToADatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.databaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.memberToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToADatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAllDirectorsToADatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -108,7 +109,8 @@
             this.addANewMemberToolStripMenuItem,
             this.addANewLoanToolStripMenuItem,
             this.saveMembersToolStripMenuItem,
-            this.saveToADatabaseToolStripMenuItem});
+            this.saveToADatabaseToolStripMenuItem,
+            this.saveAllDirectorsToADatabaseToolStripMenuItem});
             this.memberToolStripMenuItem.Name = "memberToolStripMenuItem";
             this.memberToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.memberToolStripMenuItem.Text = "Member";
@@ -116,23 +118,30 @@
             // addANewMemberToolStripMenuItem
             // 
             this.addANewMemberToolStripMenuItem.Name = "addANewMemberToolStripMenuItem";
-            this.addANewMemberToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.addANewMemberToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
             this.addANewMemberToolStripMenuItem.Text = "Add a new member";
             this.addANewMemberToolStripMenuItem.Click += new System.EventHandler(this.addANewMemberToolStripMenuItem_Click);
             // 
             // addANewLoanToolStripMenuItem
             // 
             this.addANewLoanToolStripMenuItem.Name = "addANewLoanToolStripMenuItem";
-            this.addANewLoanToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.addANewLoanToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
             this.addANewLoanToolStripMenuItem.Text = "Add a new loan";
             this.addANewLoanToolStripMenuItem.Click += new System.EventHandler(this.addANewLoanToolStripMenuItem_Click);
             // 
             // saveMembersToolStripMenuItem
             // 
             this.saveMembersToolStripMenuItem.Name = "saveMembersToolStripMenuItem";
-            this.saveMembersToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.saveMembersToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
             this.saveMembersToolStripMenuItem.Text = "Save Members";
             this.saveMembersToolStripMenuItem.Click += new System.EventHandler(this.saveMembersToolStripMenuItem_Click);
+            // 
+            // saveToADatabaseToolStripMenuItem
+            // 
+            this.saveToADatabaseToolStripMenuItem.Name = "saveToADatabaseToolStripMenuItem";
+            this.saveToADatabaseToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.saveToADatabaseToolStripMenuItem.Text = "Save All Movies to a Database";
+            this.saveToADatabaseToolStripMenuItem.Click += new System.EventHandler(this.saveToADatabaseToolStripMenuItem_Click);
             // 
             // databaseToolStripMenuItem
             // 
@@ -149,12 +158,12 @@
             this.memberToolStripMenuItem1.Text = "Member";
             this.memberToolStripMenuItem1.Click += new System.EventHandler(this.memberToolStripMenuItem1_Click);
             // 
-            // saveToADatabaseToolStripMenuItem
+            // saveAllDirectorsToADatabaseToolStripMenuItem
             // 
-            this.saveToADatabaseToolStripMenuItem.Name = "saveToADatabaseToolStripMenuItem";
-            this.saveToADatabaseToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.saveToADatabaseToolStripMenuItem.Text = "Save to a Database";
-            this.saveToADatabaseToolStripMenuItem.Click += new System.EventHandler(this.saveToADatabaseToolStripMenuItem_Click);
+            this.saveAllDirectorsToADatabaseToolStripMenuItem.Name = "saveAllDirectorsToADatabaseToolStripMenuItem";
+            this.saveAllDirectorsToADatabaseToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.saveAllDirectorsToADatabaseToolStripMenuItem.Text = "Save All Directors to a Database";
+            this.saveAllDirectorsToADatabaseToolStripMenuItem.Click += new System.EventHandler(this.saveAllDirectorsToADatabaseToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -188,5 +197,6 @@
         private System.Windows.Forms.ToolStripMenuItem databaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem memberToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem saveToADatabaseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveAllDirectorsToADatabaseToolStripMenuItem;
     }
 }
