@@ -106,7 +106,7 @@ namespace MovieLibrary.Controll
             try
             {
                 DataAccessLayerDBA dal = new DataAccessLayerDBA();
-                m_directorList = dal.ReadFromDatabaseDirector();
+                m_directorList = dal.ReadDirectorFromDatabase();
             }
             catch (Exception ex)
             {

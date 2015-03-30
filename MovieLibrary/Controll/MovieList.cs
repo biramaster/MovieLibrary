@@ -151,7 +151,7 @@ namespace MovieLibrary.Controll
             try
             {
                 DataAccessLayerDBA dal = new DataAccessLayerDBA();
-                m_movieList = dal.ReadFromDatabaseMovies();
+                m_movieList = dal.ReadMoviesFromDatabase();
             }
             catch (Exception ex)
             {

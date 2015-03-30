@@ -172,7 +172,7 @@ namespace MovieLibrary.DAL
             return this.mMoviesAdapter;
         }
 
-        public List<Director> ReadFromDatabaseDirector()
+        public List<Director> ReadDirectorFromDatabase()
         {
             List<Director> directorList = new List<Director>();
 
@@ -203,7 +203,7 @@ namespace MovieLibrary.DAL
             
         }
 
-        public List<Movie> ReadFromDatabaseMovies()
+        public List<Movie> ReadMoviesFromDatabase()
         {
             List<Movie> movieList = new List<Movie>();
 

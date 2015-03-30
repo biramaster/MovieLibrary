@@ -132,6 +132,8 @@
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="bin\Debug\DirectorLista.DAT" />
+    <None Include="bin\Debug\LoanLista.DAT" />
     <None Include="bin\Debug\MemberLista.DAT" />
     <None Include="bin\Debug\MovieCopyLista.DAT" />
     <None Include="bin\Debug\MovieLista.DAT" />

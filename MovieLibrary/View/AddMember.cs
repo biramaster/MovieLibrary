@@ -84,6 +84,7 @@ namespace MovieLibrary.View
             lvwMovieCopy.Columns.Add("ID", -2, HorizontalAlignment.Left);
             lvwMovieCopy.Columns.Add("Title", -2, HorizontalAlignment.Left);
             lvwMovieCopy.Columns.Add("Director", -2, HorizontalAlignment.Left);
+            lvwMovieCopy.Columns.Add("Status", -2, HorizontalAlignment.Left);
             
             updateListView();
 
@@ -103,6 +104,7 @@ namespace MovieLibrary.View
                 lvwMember.Items.Add(item);
             }
 
+            columns = new string[4];
             lvwMovie.Items.Clear();
             for (int i = 0; i < movieList.Count(); i++)
             {
@@ -137,7 +139,7 @@ namespace MovieLibrary.View
             string[] movieID = lblMovieCopy.Text.Split(':');
             Movie movie;
             lvwMovieCopy.Items.Clear();
-            string[] columns = new string[3];
+            string[] columns = new string[4];
             ListViewItem item;
             for (int i = 0; i < movieCopyList.Count(); i++)
             {
@@ -145,10 +147,31 @@ namespace MovieLibrary.View
                 {
                     movie = movieList.Find(movieCopyList.Get(i).ID.ToString());
                     // if not on loan
-                    columns[0] = movieCopyList.Get(i).FilmId.ToString();
+                    string movieCopyID = movieCopyList.Get(i).FilmId.ToString();
+                    columns[0] = movieCopyID;
                     columns[1] = movie.getTitle();
                     Director director = ServiceProvider.GetDirectorService().Find(movie.getDirector());
                     columns[2] = director.Name;
+                    Loan thisLoan = null;
+                    try
+                    {
+                        thisLoan = loanList.isOnLoan(movieCopyID);
+                    }
+                    catch (Exception)
+                    {
+                        
+                        //throw;
+                    }
+
+                    if (thisLoan != null)
+                    {
+                        columns[3] = "Duedate is " + thisLoan.DueDate;
+                    }
+                    else
+                    {
+                        columns[3] = "Tillgänglig";
+                    }
+
                     item = new ListViewItem(columns);
                     lvwMovieCopy.Items.Add(item);
                 }
@@ -166,9 +189,10 @@ namespace MovieLibrary.View
 
                 updateListViewMoviCopy();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //MessageBox.Show("Fel...");
+                //
+                //MessageBox.Show(ex.Message);
             }
 
         }
@@ -192,6 +216,7 @@ namespace MovieLibrary.View
             MovieCopy movieCopy = movieCopyList.Find(movieID[0]);
             Movie movie = movieList.Find(movieCopy.FilmId.ToString());
             Loan thisLoan = loanList.isOnLoan(movieCopy.ID.ToString());
+
             if (thisLoan != null)
             {
                 throw new CustomException("This movie is on Loan. Duedate is " + thisLoan.DueDate);
