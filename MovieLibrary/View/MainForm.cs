@@ -159,9 +159,20 @@ namespace MovieLibrary.View
 
         private void saveToDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DataAccessLayerDBA dal = null;
             try
             {
-                DataAccessLayerDBA dal = new DataAccessLayerDBA();
+                dal = new DataAccessLayerDBA();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+            try
+            {
+                
                 dal.SaveDirectorToDatabase();
             }
             catch (Exception ex)
@@ -172,8 +183,17 @@ namespace MovieLibrary.View
 
             try
             {
-                DataAccessLayerDBA dal = new DataAccessLayerDBA();
                 dal.SaveMoviesToDatabase();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+            try
+            {
+                dal.SaveMemberToDatabase();
             }
             catch (Exception ex)
             {

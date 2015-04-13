@@ -60,22 +60,7 @@ namespace MovieLibrary.DAL
             }
         }
 
-        public SqlDataAdapter ReadFromDatabaseMovies1()
-        {
-            msqlConnection.Open();
-
-            mMoviesAdapter = new SqlDataAdapter("SELECT * FROM dbo.Movies", msqlConnection);
-
-            mDataSet = new DataSet("Movies");
-
-            mMoviesAdapter.FillSchema(mDataSet, SchemaType.Source, "dbo.Movies");
-
-            mMoviesAdapter.Fill(mDataSet, "dbo.Movies");
-
-            msqlConnection.Close();
-
-            return mMoviesAdapter;
-        }
+        
 
         public void SaveMoviesToDatabase()
         {
@@ -160,17 +145,49 @@ namespace MovieLibrary.DAL
             msqlConnection.Close();
         }
 
-        public bool SaveToDatabase()
+        public void SaveMemberToDatabase()
         {
-            
-            return true;
+            msqlConnection.Open();
 
+            List<string> sqlList = new List<string>();
+            MemberList member = ServiceProvider.GetMemberService();
+            SqlCommand cmd;
+            string sqlString;
+
+            sqlString = "delete from dbo.member;";
+            try
+            {
+                cmd = new SqlCommand(sqlString, msqlConnection);
+                cmd.ExecuteNonQuery();
+            }
+            catch
+            {
+                throw;
+            }
+
+
+            for (int i = 0; i < member.Count(); i++)
+            {
+                sqlString = "insert into dbo.member(id,personalid,name) values(" +
+                            member.Get(i).ID + ",'" +
+                            member.Get(i).PersonalID + "','" +
+                            member.Get(i).Name + "')";
+
+                try
+                {
+                    cmd = new SqlCommand(sqlString, msqlConnection);
+                    cmd.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+
+            msqlConnection.Close();
         }
 
-        public SqlDataAdapter getMoviesAdapter()
-        {
-            return this.mMoviesAdapter;
-        }
+        
 
         public List<Director> ReadDirectorFromDatabase()
         {
@@ -238,6 +255,30 @@ namespace MovieLibrary.DAL
             msqlConnection.Close();
             return movieList;
 
+        }
+
+
+
+        public SqlDataAdapter ReadFromDatabaseMovies1()
+        {
+            msqlConnection.Open();
+
+            mMoviesAdapter = new SqlDataAdapter("SELECT * FROM dbo.Movies", msqlConnection);
+
+            mDataSet = new DataSet("Movies");
+
+            mMoviesAdapter.FillSchema(mDataSet, SchemaType.Source, "dbo.Movies");
+
+            mMoviesAdapter.Fill(mDataSet, "dbo.Movies");
+
+            msqlConnection.Close();
+
+            return mMoviesAdapter;
+        }
+
+        public SqlDataAdapter getMoviesAdapter()
+        {
+            return this.mMoviesAdapter;
         }
     }
 }
