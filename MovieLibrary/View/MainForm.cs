@@ -163,37 +163,10 @@ namespace MovieLibrary.View
             try
             {
                 dal = new DataAccessLayerDBA();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-
-            try
-            {
-                
                 dal.SaveDirectorToDatabase();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-
-            try
-            {
                 dal.SaveMoviesToDatabase();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-
-            try
-            {
                 dal.SaveMemberToDatabase();
+                dal.SaveMoviesCopyToDatabase();
             }
             catch (Exception ex)
             {

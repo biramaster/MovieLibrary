@@ -187,6 +187,43 @@ namespace MovieLibrary.DAL
             msqlConnection.Close();
         }
 
+        public void SaveMoviesCopyToDatabase()
+        {
+            msqlConnection.Open();
+            string sqlString;
+            List<string> sqlList = new List<string>();
+            MovieCopyList movies = ServiceProvider.GetMovieCopyService();
+            SqlCommand cmd;
+            sqlString = "delete from dbo.moviecopy;";
+            try
+            {
+                cmd = new SqlCommand(sqlString, msqlConnection);
+                cmd.ExecuteNonQuery();
+            }
+            catch
+            {
+                throw;
+            }
+
+            for (int i = 0; i < movies.Count(); i++)
+            {
+                sqlString = "insert into dbo.moviecopy(id,filmid) values(" +
+                            movies.Get(i).ID + "," +
+                            movies.Get(i).FilmId + ");";
+                try
+                {
+                    cmd = new SqlCommand(sqlString, msqlConnection);
+                    cmd.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+
+            msqlConnection.Close();
+        }
+
         
 
         public List<Director> ReadDirectorFromDatabase()
